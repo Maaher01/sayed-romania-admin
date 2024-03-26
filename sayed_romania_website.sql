@@ -2,10 +2,10 @@
 -- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
--- Host: localhost:3306
--- Generation Time: Mar 10, 2024 at 04:06 PM
--- Server version: 10.6.17-MariaDB
--- PHP Version: 8.1.27
+-- Host: 127.0.0.1
+-- Generation Time: Mar 26, 2024 at 12:58 AM
+-- Server version: 10.4.32-MariaDB
+-- PHP Version: 8.0.30
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -18,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `edumatric_website`
+-- Database: `sayed_romania_website`
 --
 
 -- --------------------------------------------------------
@@ -68,7 +68,7 @@ CREATE TABLE `companyprofiles` (
 --
 
 INSERT INTO `companyprofiles` (`id`, `_name`, `_email`, `_phone`, `_mobile`, `_latlong`, `_description`, `_website`, `_image`, `created_at`, `updated_at`) VALUES
-(2, 'Edumatric', 'info@edumatric.com', '+8801709990909', '+8801709990909', '23.7766154,90.409216', '6 Gulshan Avenue, Gulshan-1, Dhaka-1212, Bangladesh.', 'edumatric.com', 'https://admin.edumatric.com/uploads/companyimage/8VoXjC8bcT4soNjPDt1p1PBpsQB7F8GwnJW3Ywe7.png', '2023-08-19 07:13:10', '2023-09-27 06:45:56');
+(2, 'Edumatric', 'info@edumatric.com', '+8801758374376', '+8801709990909', '23.7766154,90.409216', '6 Gulshan Avenue, Gulshan-1, Dhaka-1212, Bangladesh.', 'edumatric.com', 'http://127.0.0.1:8000/uploads/companyimage/RdxKzM81WAo6KYEguLQh19KPKZxpf8ZRGPG8izDT.svg', '2023-08-19 07:13:10', '2024-03-25 17:25:22');
 
 -- --------------------------------------------------------
 
@@ -106,13 +106,14 @@ CREATE TABLE `countries` (
 --
 
 INSERT INTO `countries` (`id`, `_name`, `_image`, `created_at`, `updated_at`) VALUES
-(1, 'Canada', 'https://admin.edumatric.com/uploads/countryimage/vdubspmfbuiE1nfr9EoGkrrA1EboQIsgGPw9ekUu.png', NULL, '2023-09-05 01:15:53'),
-(2, 'USA', 'https://admin.edumatric.com/uploads/countryimage/2eYe4D7hRn31mG2pV9iwFRFmcR3dBR26rCrU7th8.png', NULL, '2023-09-05 01:16:07'),
-(3, 'Australia', 'https://admin.edumatric.com/uploads/countryimage/s2OMqsGfijDdO3lCGGPIGdKo97mo6WqobdRvwKF8.png', '2023-08-20 04:16:52', '2023-09-05 01:16:21'),
-(4, 'UK', 'https://admin.edumatric.com/uploads/countryimage/iucs9RA7IlrmPzEN5I2jGwZQFdq7XltE8bO574pm.jpg', '2023-09-05 01:04:26', '2023-09-05 01:16:36'),
-(5, 'Europe', 'https://admin.edumatric.com/uploads/countryimage/oc0zdf5uBvvXFi9RaREWjnIBukmQ5JnKx5xObFNv.jpg', '2023-09-05 01:09:48', '2023-09-05 01:16:48'),
-(6, 'Malaysia', 'https://admin.edumatric.com/uploads/countryimage/QAMY5m4SfpvlCepQAkbkrfGd7xLWGt6fBs6WMR93.jpg', '2023-09-05 01:10:48', '2023-09-05 01:17:00'),
-(7, 'China', 'https://admin.edumatric.com/uploads/countryimage/lNsayeDiAQei9S2jq7GqTMDiX7WPVTWJESFv8Wcx.jpg', '2023-09-05 01:11:12', '2023-09-05 01:17:19');
+(8, 'Hungary', 'http://127.0.0.1:8000/uploads/countryimage/4zAWGKTiedaakyNI8D6VDvLoDeF0eLsYWwnUhROK.png', '2024-03-25 17:43:21', '2024-03-25 17:43:21'),
+(9, 'Kosovo', 'http://127.0.0.1:8000/uploads/countryimage/WlhHIAMw9Q71OqikzcoXISgZgbeO8T6t4QcANgYF.png', '2024-03-25 17:43:36', '2024-03-25 17:43:36'),
+(10, 'Lithuania', 'http://127.0.0.1:8000/uploads/countryimage/hhNoNC5wG6NZvslRfZ7SNB9fTSSI4FRhVDMpQJDN.png', '2024-03-25 17:44:00', '2024-03-25 17:44:00'),
+(11, 'Macedonia', 'http://127.0.0.1:8000/uploads/countryimage/rYpbsSegYgbAcS05WP1LuumFTQ0GxJU26zjCbEGW.png', '2024-03-25 17:44:15', '2024-03-25 17:44:15'),
+(12, 'Montenegro', 'http://127.0.0.1:8000/uploads/countryimage/Q5ecch2Udwr5RVh0Rj7L2URc7BZbO1D8paOGiHua.jpg', '2024-03-25 17:44:31', '2024-03-25 17:44:31'),
+(13, 'Poland', 'http://127.0.0.1:8000/uploads/countryimage/Y8qYy5JwDs3a31lcrg73dg20JWd20AxegwSDznpR.png', '2024-03-25 17:44:44', '2024-03-25 17:44:44'),
+(14, 'Romania', 'http://127.0.0.1:8000/uploads/countryimage/umW9pZAkdF0rvDtq6jbeecZSWaaUIKYQw5ZKm8wG.png', '2024-03-25 17:45:00', '2024-03-25 17:45:00'),
+(15, 'Serbia', 'http://127.0.0.1:8000/uploads/countryimage/yiwKO0SXFxKWjhIyfGUM0YbhfM3A8CJ6cCWq7taB.png', '2024-03-25 17:45:16', '2024-03-25 17:45:16');
 
 -- --------------------------------------------------------
 
@@ -883,11 +884,11 @@ CREATE TABLE `menus` (
 --
 
 INSERT INTO `menus` (`id`, `_title`, `_url`, `_parentmenuid`, `_sort`, `_status`, `created_at`, `updated_at`) VALUES
-(1, 'About', '/about', 0, 2, 1, '2023-08-25 16:31:37', '2023-08-26 23:41:27'),
-(2, 'Courses', '/courses', 0, 3, 1, '2023-08-25 16:32:05', '2023-08-26 23:41:35'),
-(3, 'Event', '/event', 0, 3, 1, '2023-08-25 16:32:33', '2023-08-26 23:41:42'),
-(4, 'Home', '/', 0, 1, 1, '2023-08-25 16:33:40', '2023-08-25 16:33:40'),
-(5, 'Contact', '/contact', 0, 5, 1, '2023-08-25 16:34:07', '2023-08-26 23:41:48');
+(1, 'About', 'portfolioDetail', 0, 2, 1, '2023-08-25 16:31:37', '2024-03-25 17:26:44'),
+(2, 'Courses', '/courses', 0, 3, 2, '2023-08-25 16:32:05', '2024-03-25 17:24:21'),
+(3, 'Event', '/event', 0, 3, 2, '2023-08-25 16:32:33', '2024-03-25 17:24:33'),
+(4, 'Home', '/', 0, 1, 2, '2023-08-25 16:33:40', '2024-03-25 17:24:13'),
+(5, 'Contact', 'contact-us', 0, 5, 1, '2023-08-25 16:34:07', '2024-03-25 17:30:15');
 
 -- --------------------------------------------------------
 
@@ -951,9 +952,12 @@ CREATE TABLE `newsfeeds` (
 --
 
 INSERT INTO `newsfeeds` (`id`, `_title`, `_subtitle`, `_image`, `_date`, `_status`, `created_at`, `updated_at`) VALUES
-(1, 'Work permit extended for international students in Canada', 'International Graduates in Canada, whose work permits expired or will expire between September 20th, 2021, and December 31 of this year, will be able to apply for an extension of up to 18 months.', 'https://admin.edumatric.com/uploads/newsfeedimage/seK5hel3iwj7XgBOjsE4xO2jBQuaD4vjoU31Z8zD.jpg', '2024-06-29 18:00:00', 1, '2023-09-05 01:54:17', '2023-10-02 03:14:23'),
-(2, 'International students will not be able to change courses in Australia', 'The new rule will be applicable for the Visa petitioners who will submit their visa applications after July 1, 2022. This rule will be implemented for the international students.', 'https://admin.edumatric.com/uploads/newsfeedimage/xGcF0sxNDl0q5BQ0ZP7DT0Ih9zG1qdAZKDonU2k2.jpg', '2022-06-14 18:00:00', 1, '2023-09-05 01:57:09', '2023-09-05 01:57:09'),
-(5, 'Australia tightens student visa rules amid concerns of misuse', 'Recent investigations have revealed that many students were exploiting this rule by abandoning their university programs and permanently transitioning to less expensive courses.', 'https://admin.edumatric.com/uploads/newsfeedimage/ut6ywlBiway6vo2ik7eJxCOcgeHH7Eg3tq14bw84.jpg', '2023-08-24 18:00:00', 1, '2023-09-05 03:32:39', '2023-09-05 03:32:39');
+(1, 'Work permit extended for international students in Canada', 'International Graduates in Canada, whose work permits expired or will expire between September 20th, 2021, and December 31 of this year, will be able to apply for an extension of up to 18 months.', 'https://admin.edumatric.com/uploads/newsfeedimage/seK5hel3iwj7XgBOjsE4xO2jBQuaD4vjoU31Z8zD.jpg', '2024-06-28 18:00:00', 2, '2023-09-05 01:54:17', '2024-03-25 17:50:37'),
+(2, 'International students will not be able to change courses in Australia', 'The new rule will be applicable for the Visa petitioners who will submit their visa applications after July 1, 2022. This rule will be implemented for the international students.', 'https://admin.edumatric.com/uploads/newsfeedimage/xGcF0sxNDl0q5BQ0ZP7DT0Ih9zG1qdAZKDonU2k2.jpg', '2022-06-13 18:00:00', 2, '2023-09-05 01:57:09', '2024-03-25 17:50:44'),
+(5, 'Australia tightens student visa rules amid concerns of misuse', 'Recent investigations have revealed that many students were exploiting this rule by abandoning their university programs and permanently transitioning to less expensive courses.', 'https://admin.edumatric.com/uploads/newsfeedimage/ut6ywlBiway6vo2ik7eJxCOcgeHH7Eg3tq14bw84.jpg', '2023-08-23 18:00:00', 2, '2023-09-05 03:32:39', '2024-03-25 17:50:49'),
+(6, 'What is Lorem Ipsum?', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy', 'http://127.0.0.1:8000/uploads/newsfeedimage/DsSjEFaxYCJ3TbCN9JkOhnOLnoVuKSwHZHVOSblA.jpg', '2024-03-24 18:00:00', 1, '2024-03-25 17:52:16', '2024-03-25 17:52:16'),
+(7, 'What is Lorem Ipsum?', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy', 'http://127.0.0.1:8000/uploads/newsfeedimage/UDsyqfDQt1V8x9IEkNxUAe5JcH90v6lO8C7sJ88G.jpg', '2024-03-24 18:00:00', 1, '2024-03-25 17:53:16', '2024-03-25 17:53:16'),
+(9, 'What is Lorem Ipsum?', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy', 'http://127.0.0.1:8000/uploads/newsfeedimage/oMB6XHGtLyW4LbcSw2fskrgIQXiTelom8Q02fxYV.jpg', '2024-03-24 18:00:00', 1, '2024-03-25 17:54:53', '2024-03-25 17:54:53');
 
 -- --------------------------------------------------------
 
@@ -1007,7 +1011,9 @@ CREATE TABLE `reviews` (
 --
 
 INSERT INTO `reviews` (`id`, `_title`, `_subtitle`, `_image`, `_description`, `_status`, `created_at`, `updated_at`) VALUES
-(2, 'Ayesh Hoque', 'Students Of AMMT Department', 'https://admin.edumatric.com/uploads/reviewimage/44n2on3p2cjU082X8vTdCre1EhyyYji6bFX9KWS0.webp', 'EduMatric assisted me a lot from the day one of my USA Student Visa process. All staff members are friendly and supportive. I have been guided step-by-step for the entire process and it was quite smooth going experience for me. The way I was prepared for my Visa Interview by OVERSEAS was simply excellent and it has played an efficient role for my success. I have always been provided personal counseling for each of my queries.', 1, '2023-08-27 07:10:13', '2023-08-27 07:10:13');
+(2, 'Ayesh Hoque', 'Students Of AMMT Department', 'https://admin.edumatric.com/uploads/reviewimage/44n2on3p2cjU082X8vTdCre1EhyyYji6bFX9KWS0.webp', 'EduMatric assisted me a lot from the day one of my USA Student Visa process. All staff members are friendly and supportive. I have been guided step-by-step for the entire process and it was quite smooth going experience for me. The way I was prepared for my Visa Interview by OVERSEAS was simply excellent and it has played an efficient role for my success. I have always been provided personal counseling for each of my queries.', 1, '2023-08-27 07:10:13', '2023-08-27 07:10:13'),
+(6, 'Syed Maaher Hossain', 'not a student anymore', 'http://127.0.0.1:8000/uploads/reviewimage/8EKcihiJJC5yAMZghzdCjS80Yk3mltWTABVByjfU.png', 'EduMatric assisted me a lot from the day one of my USA Student Visa process. All staff members are friendly and supportive. I have been guided step-by-step for the entire process and it was quite smooth going experience for me. The way I was prepared for my Visa Interview by OVERSEAS was simply excellent and it has played an efficient role for my success. I have always been provided personal counseling for each of my queries.', 1, '2024-03-25 17:48:27', '2024-03-25 17:49:33'),
+(7, 'Siam Pathan', 'still a student', 'http://127.0.0.1:8000/uploads/reviewimage/AqSIrg1JcxA3JKhlZBSqRQOXMSyRynw6SaMgSP98.png', 'EduMatric assisted me a lot from the day one of my USA Student Visa process. All staff members are friendly and supportive. I have been guided step-by-step for the entire process and it was quite smooth going experience for me. The way I was prepared for my Visa Interview by OVERSEAS was simply excellent and it has played an efficient role for my success. I have always been provided personal counseling for each of my queries.', 1, '2024-03-25 17:49:17', '2024-03-25 17:49:17');
 
 -- --------------------------------------------------------
 
@@ -1081,8 +1087,11 @@ CREATE TABLE `sliders` (
 --
 
 INSERT INTO `sliders` (`id`, `_title`, `_subtitle`, `_image`, `_status`, `_flag`, `created_at`, `updated_at`) VALUES
-(1, 'Welcome To Edumatric', 'Pathway to Global Education', 'https://admin.edumatric.com/uploads/sliderimage/EPWyOPDc6ROIu0Z5m7nNnL5dVBITqJWCt19QrGMI.jpg', 1, 1, '2023-08-26 15:24:24', '2023-09-26 01:17:32'),
-(2, '20 Countries, 2000+ Universities.', 'Free Assessment, Free Application & Visa Processing', 'https://admin.edumatric.com/uploads/sliderimage/OXbW1weqUmtlvu0L4iCtFz0cOccKx3JLtVhom1on.jpg', 1, 1, '2023-08-26 15:34:49', '2023-09-27 00:39:30');
+(1, 'Welcome To Edumatric', 'Pathway to Global Education', 'https://admin.edumatric.com/uploads/sliderimage/EPWyOPDc6ROIu0Z5m7nNnL5dVBITqJWCt19QrGMI.jpg', 2, 1, '2023-08-26 15:24:24', '2024-03-25 17:35:28'),
+(2, '20 Countries, 2000+ Universities.', 'Free Assessment, Free Application & Visa Processing', 'https://admin.edumatric.com/uploads/sliderimage/OXbW1weqUmtlvu0L4iCtFz0cOccKx3JLtVhom1on.jpg', 2, 1, '2023-08-26 15:34:49', '2024-03-25 17:35:34'),
+(3, 'Sayed Romania Overseas Ltd.', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy', 'http://127.0.0.1:8000/uploads/sliderimage/CCkO4vQspWkyZiT4xjuoUNjG9kLfjmx0VOUaVhVj.jpg', 1, 1, '2024-03-25 17:37:38', '2024-03-25 17:37:38'),
+(4, 'Sayed Romania Overseas Ltd.', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy', 'http://127.0.0.1:8000/uploads/sliderimage/AZxN21bch8gyOZKDvQW4u0zBoqpd6z4v90Pzx8WB.jpg', 1, 1, '2024-03-25 17:40:12', '2024-03-25 17:40:12'),
+(5, 'Sayed Romania Overseas Ltd.', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy', 'http://127.0.0.1:8000/uploads/sliderimage/CBrQa1sKrHw3Qs2hu6qCNJIQTJq2cHvhYUodZxDG.jpg', 1, 1, '2024-03-25 17:41:30', '2024-03-25 17:41:30');
 
 -- --------------------------------------------------------
 
@@ -1881,7 +1890,7 @@ ALTER TABLE `contacts`
 -- AUTO_INCREMENT for table `countries`
 --
 ALTER TABLE `countries`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT for table `courses`
@@ -1941,7 +1950,7 @@ ALTER TABLE `migrations`
 -- AUTO_INCREMENT for table `newsfeeds`
 --
 ALTER TABLE `newsfeeds`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `personal_access_tokens`
@@ -1953,7 +1962,7 @@ ALTER TABLE `personal_access_tokens`
 -- AUTO_INCREMENT for table `reviews`
 --
 ALTER TABLE `reviews`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `sections`
@@ -1965,7 +1974,7 @@ ALTER TABLE `sections`
 -- AUTO_INCREMENT for table `sliders`
 --
 ALTER TABLE `sliders`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `sociallinks`
