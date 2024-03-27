@@ -162,6 +162,8 @@ Route::post('generalquery/add', [GeneralqueryController::class, 'store']);
 Route::get('generalquery/edit/{id}', [GeneralqueryController::class, 'edit']);
 Route::post('generalquery/update/{id}', [GeneralqueryController::class, 'update']);
 
+Route::get('recentvisasuccess', [RecentVisaController::class, 'show']);
+
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
