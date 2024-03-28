@@ -23,21 +23,9 @@ class RecentVisaController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create(Request $request)
+    public function create()
     {
-        $path = "";
-        if($request->hasFile('image')){  
-            $image = $request->file('image');
-            $path = $image->store('recentvisaimage', 'public'); // Store the image in the "public/companyimage" directory
-        }   
-
-
-        $profile = RecentVisa::create([
-            '_image' => asset("/uploads")."/".$path,
-        ]);
-
-        return response()->json(['status' => true, 'profile' => $profile]);
-
+        //
     }
 
     /**
@@ -48,7 +36,26 @@ class RecentVisaController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validator = Validator::make($request->all(), [
+            'image' => ['required']
+        ]);
+
+        if($validator->fails()) {
+            return response()->json(['status' => false, 'message' => 'Validation Error', 'errors' => $validator->errors()], 202);
+        }
+
+        $path = "";
+        if($request->hasFile('image')){  
+            $image = $request->file('image');
+            $path = $image->store('recentvisaimage', 'public'); // Store the image in the "public/recentvisaimage" directory
+        } 
+        
+        $profile = RecentVisa::create([
+            '_status' => $request->status,
+            '_image' => asset("/uploads")."/".$path
+        ]);
+
+        return response()->json(['status' => true, 'profile' => $profile]);
     }
 
     /**

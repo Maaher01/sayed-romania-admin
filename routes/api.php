@@ -22,6 +22,8 @@ use App\Http\Controllers\NewsfeedController;
 use App\Http\Controllers\EventController;
 use App\Http\Controllers\StudentregistrationController;
 use App\Http\Controllers\GeneralqueryController;
+use App\Http\Controllers\RecentVisaController;
+use App\Http\Controllers\CounterController;
 /*
 /*
 |--------------------------------------------------------------------------
@@ -34,10 +36,9 @@ use App\Http\Controllers\GeneralqueryController;
 |
 */
 
-
-
 Route::post('login', [LoginController::class, 'authenticate']);
 Route::post('registration', [RegistrationController::class, 'register']);
+
 Route::post('companysetup', [CompanyprofileController::class, 'create']);
 Route::get('companysetup', [CompanyprofileController::class, 'show']);
 Route::post('companysetup/{id}', [CompanyprofileController::class, 'update']);
@@ -47,7 +48,6 @@ Route::post('country/add', [CountryController::class, 'create']);
 Route::get('country/edit/{id}', [CountryController::class, 'edit']);
 Route::post('country/update/{id}', [CountryController::class, 'update']);
 
-
 Route::get('alluniversity', [UniversityController::class, 'alluniversity']);
 Route::get('university', [UniversityController::class, 'show']);
 Route::post('university/add', [UniversityController::class, 'store']);
@@ -55,8 +55,6 @@ Route::get('university/edit/{id}', [UniversityController::class, 'edit']);
 Route::post('university/update/{id}', [UniversityController::class, 'update']);
 
 Route::get('universitylist/{id}', [UniversityController::class, 'universitylist']);
-
-
 
 Route::get('degree', [DegreeController::class, 'show']);
 Route::post('degree/add', [DegreeController::class, 'store']);
@@ -72,14 +70,11 @@ Route::get('coursedetails/{id}', [CourseController::class, 'coursedetails']);
 
 Route::get('course/university/{id}', [CourseController::class, 'universitycourse']);
 
-
-
 Route::get('graduatecourse/{id}', [CourseController::class, 'graduatecourse']);
 
 Route::get('undergraduatecourse/{id}', [CourseController::class, 'undergraduatecourse']);
 
 Route::get('diplomacourse/{id}', [CourseController::class, 'diplomacourse']);
-
 
 Route::get('gcourse', [CourseController::class, 'gcourse']);
 
@@ -87,14 +82,10 @@ Route::get('undergcourse', [CourseController::class, 'undergcourse']);
 
 Route::get('dcourse', [CourseController::class, 'dcourse']);
 
-
-
-
 Route::get('client', [ClientController::class, 'show']);
 Route::post('client/add', [ClientController::class, 'store']);
 Route::get('client/edit/{id}', [ClientController::class, 'edit']);
 Route::post('client/update/{id}', [ClientController::class, 'update']);
-
 
 Route::get('contact', [ContactController::class, 'show']);
 Route::post('contact/add', [ContactController::class, 'store']);
@@ -116,10 +107,7 @@ Route::post('menu/add', [MenuController::class, 'store']);
 Route::get('menu/edit/{id}', [MenuController::class, 'edit']);
 Route::post('menu/update/{id}', [MenuController::class, 'update']);
 
-
 Route::get('submenu/{id}', [MenuController::class, 'submenu']);
-
-
 
 Route::get('section', [SectionController::class, 'show']);
 Route::post('section/add', [SectionController::class, 'store']);
@@ -163,6 +151,10 @@ Route::get('generalquery/edit/{id}', [GeneralqueryController::class, 'edit']);
 Route::post('generalquery/update/{id}', [GeneralqueryController::class, 'update']);
 
 Route::get('recentvisasuccess', [RecentVisaController::class, 'show']);
+Route::post('recentvisasuccess/add', [RecentVisaController::class, 'store']);
+
+Route::get('counter', [CounterController::class, 'show']);
+Route::post('counter/add', [CounterController::class, 'create']);
 
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();

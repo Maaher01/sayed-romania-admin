@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 27, 2024 at 01:19 AM
+-- Generation Time: Mar 28, 2024 at 11:13 AM
 -- Server version: 10.4.32-MariaDB
--- PHP Version: 8.0.30
+-- PHP Version: 8.1.25
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -82,6 +82,21 @@ CREATE TABLE `contacts` (
   `_phone` varchar(191) NOT NULL,
   `_email` varchar(191) DEFAULT NULL,
   `_address` varchar(191) NOT NULL,
+  `_status` tinyint(4) NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `counters`
+--
+
+CREATE TABLE `counters` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `_name` varchar(191) NOT NULL,
+  `_amount` bigint(20) NOT NULL,
   `_status` tinyint(4) NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
@@ -932,8 +947,13 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (141, '2023_09_03_080454_create_studentregistrations_table', 8),
 (142, '2023_09_09_191255_create_generalqueries_table', 9),
 (143, '2024_03_26_113813_create_recentvisasuccess_table', 9),
-(144, '2024_03_26_115023_create_recentvisasuccess_table', 10),
-(145, '2024_03_26_115802_create_recentvisasuccess_table', 11);
+(146, '2024_03_28_041843_create_recentvisasuccess_table', 10),
+(147, '2024_03_28_050250_create_recent_visas_table', 11),
+(148, '2024_03_28_052532_create_recent_visas_table', 12),
+(149, '2024_03_28_053352_create_recent_visas_table', 13),
+(150, '2024_03_28_081239_create_counter_table', 14),
+(151, '2024_03_28_083611_create_counters_table', 15),
+(152, '2024_03_28_100941_create_counters_table', 16);
 
 -- --------------------------------------------------------
 
@@ -990,6 +1010,20 @@ CREATE TABLE `personal_access_tokens` (
   `token` varchar(64) NOT NULL,
   `abilities` text DEFAULT NULL,
   `last_used_at` timestamp NULL DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `recent_visas`
+--
+
+CREATE TABLE `recent_visas` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `_image` varchar(191) NOT NULL,
+  `_status` tinyint(4) NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -1094,9 +1128,9 @@ CREATE TABLE `sliders` (
 INSERT INTO `sliders` (`id`, `_title`, `_subtitle`, `_image`, `_status`, `_flag`, `created_at`, `updated_at`) VALUES
 (1, 'Welcome To Edumatric', 'Pathway to Global Education', 'https://admin.edumatric.com/uploads/sliderimage/EPWyOPDc6ROIu0Z5m7nNnL5dVBITqJWCt19QrGMI.jpg', 2, 1, '2023-08-26 15:24:24', '2024-03-25 17:35:28'),
 (2, '20 Countries, 2000+ Universities.', 'Free Assessment, Free Application & Visa Processing', 'https://admin.edumatric.com/uploads/sliderimage/OXbW1weqUmtlvu0L4iCtFz0cOccKx3JLtVhom1on.jpg', 2, 1, '2023-08-26 15:34:49', '2024-03-25 17:35:34'),
-(3, 'Sayed Romania Overseas Ltd.', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy', 'http://127.0.0.1:8000/uploads/sliderimage/CCkO4vQspWkyZiT4xjuoUNjG9kLfjmx0VOUaVhVj.jpg', 1, 1, '2024-03-25 17:37:38', '2024-03-25 17:37:38'),
-(4, 'Sayed Romania Overseas Ltd.', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy', 'http://127.0.0.1:8000/uploads/sliderimage/AZxN21bch8gyOZKDvQW4u0zBoqpd6z4v90Pzx8WB.jpg', 1, 1, '2024-03-25 17:40:12', '2024-03-25 17:40:12'),
-(5, 'Sayed Romania Overseas Ltd.', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy', 'http://127.0.0.1:8000/uploads/sliderimage/CBrQa1sKrHw3Qs2hu6qCNJIQTJq2cHvhYUodZxDG.jpg', 1, 1, '2024-03-25 17:41:30', '2024-03-25 17:41:30');
+(3, 'Sayed Romania Overseas Ltd.', 'Govt. Approved Recruiting Agency RL No - 2663', 'http://127.0.0.1:8000/uploads/sliderimage/CCkO4vQspWkyZiT4xjuoUNjG9kLfjmx0VOUaVhVj.jpg', 1, 1, '2024-03-25 17:37:38', '2024-03-28 03:31:36'),
+(4, 'Sayed Romania Overseas Ltd.', 'Govt. Approved Recruiting Agency RL No - 2663', 'http://127.0.0.1:8000/uploads/sliderimage/AZxN21bch8gyOZKDvQW4u0zBoqpd6z4v90Pzx8WB.jpg', 1, 1, '2024-03-25 17:40:12', '2024-03-28 03:31:45'),
+(5, 'Sayed Romania Overseas Ltd.', 'Govt. Approved Recruiting Agency RL No - 2663', 'http://127.0.0.1:8000/uploads/sliderimage/CBrQa1sKrHw3Qs2hu6qCNJIQTJq2cHvhYUodZxDG.jpg', 1, 1, '2024-03-25 17:41:30', '2024-03-28 03:31:53');
 
 -- --------------------------------------------------------
 
@@ -1330,6 +1364,12 @@ ALTER TABLE `contacts`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `counters`
+--
+ALTER TABLE `counters`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `countries`
 --
 ALTER TABLE `countries`
@@ -1411,6 +1451,12 @@ ALTER TABLE `personal_access_tokens`
   ADD KEY `personal_access_tokens_tokenable_type_tokenable_id_index` (`tokenable_type`,`tokenable_id`);
 
 --
+-- Indexes for table `recent_visas`
+--
+ALTER TABLE `recent_visas`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `reviews`
 --
 ALTER TABLE `reviews`
@@ -1484,6 +1530,12 @@ ALTER TABLE `contacts`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
+-- AUTO_INCREMENT for table `counters`
+--
+ALTER TABLE `counters`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+
+--
 -- AUTO_INCREMENT for table `countries`
 --
 ALTER TABLE `countries`
@@ -1541,7 +1593,7 @@ ALTER TABLE `menus`
 -- AUTO_INCREMENT for table `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=146;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=153;
 
 --
 -- AUTO_INCREMENT for table `newsfeeds`
@@ -1554,6 +1606,12 @@ ALTER TABLE `newsfeeds`
 --
 ALTER TABLE `personal_access_tokens`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `recent_visas`
+--
+ALTER TABLE `recent_visas`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `reviews`
@@ -1571,7 +1629,7 @@ ALTER TABLE `sections`
 -- AUTO_INCREMENT for table `sliders`
 --
 ALTER TABLE `sliders`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `sociallinks`

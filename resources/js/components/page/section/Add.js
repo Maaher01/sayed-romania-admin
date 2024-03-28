@@ -11,10 +11,13 @@ import Grid from "@mui/material/Grid";
 import Layout from "../../layout/Layout";
 import BackupIcon from "@mui/icons-material/Backup";
 import { toast } from "react-toastify";
+import { CKEditor } from "@ckeditor/ckeditor5-react";
+import ClassicEditor from "@ckeditor/ckeditor5-build-classic";
 
 const Add = () => {
   const navigate = useNavigate();
   const [status, setStatus] = useState("");
+  const [description, setDescription] = useState("Description");
   const [menuid, setMenuid] = useState();
   const [menulist, setMenulist] = useState([]);
   const [imageUrl, setImageUrl] = useState(null);
@@ -34,6 +37,10 @@ const Add = () => {
     formData.append("status", status);
     formData.append("menu", menuid);
     formData.append("image", img);
+    formData.append("description", description);
+
+    logHTMLData(formData);
+
     axios
       .post("/api/section/add", formData)
       .then(function (response) {
@@ -48,6 +55,10 @@ const Add = () => {
         console.log(error.message);
         toast("An Error Occured");
       });
+  };
+
+  const logHTMLData = (htmlData) => {
+    console.log(htmlData);
   };
 
   const fetchMenu = async () => {
@@ -129,16 +140,15 @@ const Add = () => {
               />
             </Grid>
 
-            <Grid item xs={6}>
-              <TextField
-                id="standard-basic"
-                fullWidth
-                name="description"
-                label="Description"
-                variant="outlined"
-                multiline
-                maxRows={10}
-                InputProps={{ style: { backgroundColor: "white" } }}
+            <Grid item xs={12}>
+              <CKEditor
+                editor={ClassicEditor}
+                data={description}
+                onChange={(event, editor) => {
+                  const data = editor.getData();
+                  setDescription(data);
+                  logHTMLData(data);
+                }}
               />
             </Grid>
 
