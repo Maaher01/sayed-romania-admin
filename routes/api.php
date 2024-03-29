@@ -154,7 +154,7 @@ Route::get('recentvisasuccess', [RecentVisaController::class, 'show']);
 Route::post('recentvisasuccess/add', [RecentVisaController::class, 'store']);
 
 Route::get('counter', [CounterController::class, 'show']);
-Route::post('counter/add', [CounterController::class, 'create']);
+Route::post('counter/add', [CounterController::class, 'store']);
 
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();

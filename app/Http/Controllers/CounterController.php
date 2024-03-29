@@ -16,6 +16,17 @@ class CounterController extends Controller
      */
     public function create(Request $request)
     {
+        //
+    }
+
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function store(Request $request)
+    {
         $validator = Validator::make($request->all(), [
             'name' => ['required', 'string', 'max:255'],
             'amount' => ['required', 'integer']
@@ -27,6 +38,7 @@ class CounterController extends Controller
 
         $profile = Counter::create([
             '_name' => $request->name,
+            '_status' => $request->status,
             '_amount' => $request->amount
         ]);
 
