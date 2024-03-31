@@ -9,6 +9,7 @@ class RecentVisa extends Model
 {
     use HasFactory;
     protected $fillable = [
-        '_image'
+        '_image',
+        '_status',
     ];
 }

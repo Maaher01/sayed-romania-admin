@@ -12,6 +12,7 @@ import DeleteIcon from "@mui/icons-material/Delete";
 const List = () => {
   const [delrow, setDelrow] = useState(0);
   const [searchurl, setSearchurl] = useState("/api/counter");
+
   const columns = [
     {
       name: "Counter Name",

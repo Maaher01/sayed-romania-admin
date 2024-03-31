@@ -11,6 +11,7 @@ class Counter extends Model
 
     protected $fillable = [
         '_name',
-        '_amount'
+        '_amount',
+        '_status',
     ];
 }
