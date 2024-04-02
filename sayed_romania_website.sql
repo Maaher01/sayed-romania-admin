@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 28, 2024 at 11:13 AM
+-- Generation Time: Apr 02, 2024 at 08:04 AM
 -- Server version: 10.4.32-MariaDB
--- PHP Version: 8.1.25
+-- PHP Version: 8.0.30
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -101,6 +101,16 @@ CREATE TABLE `counters` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `counters`
+--
+
+INSERT INTO `counters` (`id`, `_name`, `_amount`, `_status`, `created_at`, `updated_at`) VALUES
+(1, 'Happy Customers', 4000, 1, '2024-03-30 22:35:46', '2024-03-30 22:35:46'),
+(2, 'Recruitments', 3000, 1, '2024-03-30 22:41:13', '2024-03-30 22:41:13'),
+(3, 'Skilled Agents', 500, 1, '2024-03-30 22:41:36', '2024-03-30 22:41:36'),
+(4, 'Years of Experience', 30, 1, '2024-03-30 22:42:21', '2024-03-30 22:42:21');
 
 -- --------------------------------------------------------
 
@@ -903,7 +913,10 @@ INSERT INTO `menus` (`id`, `_title`, `_url`, `_parentmenuid`, `_sort`, `_status`
 (2, 'Courses', '/courses', 0, 3, 2, '2023-08-25 16:32:05', '2024-03-25 17:24:21'),
 (3, 'Event', '/event', 0, 3, 2, '2023-08-25 16:32:33', '2024-03-25 17:24:33'),
 (4, 'Home', '/', 0, 1, 1, '2023-08-25 16:33:40', '2024-03-26 04:43:26'),
-(5, 'Contact', 'contact-us', 0, 5, 1, '2023-08-25 16:34:07', '2024-03-25 17:30:15');
+(5, 'Contact', 'contact-us', 0, 5, 1, '2023-08-25 16:34:07', '2024-03-25 17:30:15'),
+(7, 'Features', '/features', 0, 6, 2, '2024-03-30 23:42:24', '2024-03-30 23:42:24'),
+(8, 'Video', '/video', 0, 7, 2, '2024-03-30 23:54:41', '2024-03-30 23:54:41'),
+(9, 'Notice', '/notice', 0, 8, 2, '2024-04-01 23:19:26', '2024-04-01 23:19:26');
 
 -- --------------------------------------------------------
 
@@ -953,7 +966,9 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (149, '2024_03_28_053352_create_recent_visas_table', 13),
 (150, '2024_03_28_081239_create_counter_table', 14),
 (151, '2024_03_28_083611_create_counters_table', 15),
-(152, '2024_03_28_100941_create_counters_table', 16);
+(152, '2024_03_28_100941_create_counters_table', 16),
+(153, '2024_03_31_043338_create_counters_table', 17),
+(154, '2024_03_31_043648_create_recent_visas_table', 18);
 
 -- --------------------------------------------------------
 
@@ -1028,6 +1043,16 @@ CREATE TABLE `recent_visas` (
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+--
+-- Dumping data for table `recent_visas`
+--
+
+INSERT INTO `recent_visas` (`id`, `_image`, `_status`, `created_at`, `updated_at`) VALUES
+(1, 'http://127.0.0.1:8000/uploads/recentvisaimage/7HDYCi4fqOTGDNOkNbvAuvqd3cpux44j9Y5UxHqe.jpg', 1, '2024-03-30 22:38:00', '2024-03-30 22:38:00'),
+(2, 'http://127.0.0.1:8000/uploads/recentvisaimage/3SfjycFyGHw88Y8oSHSeb2a3dUowQMz7nukYTzPC.jpg', 1, '2024-03-30 22:40:09', '2024-03-30 22:40:09'),
+(3, 'http://127.0.0.1:8000/uploads/recentvisaimage/S8dgtWeCdRW4GEoM1P9tXkTgcj9OQUsHwQGcGxqS.jpg', 1, '2024-03-30 22:40:22', '2024-03-30 22:40:22'),
+(4, 'http://127.0.0.1:8000/uploads/recentvisaimage/0qTFHwLaiH1yRDPq3cEPyIbu23eCziGnxUn4mnjt.jpg', 1, '2024-03-30 22:40:34', '2024-03-30 22:40:34');
+
 -- --------------------------------------------------------
 
 --
@@ -1080,7 +1105,12 @@ CREATE TABLE `sections` (
 --
 
 INSERT INTO `sections` (`id`, `_title`, `_subtitle`, `_image`, `_videourl`, `_link`, `_description`, `_sort`, `_menuid`, `_status`, `created_at`, `updated_at`) VALUES
-(1, 'About Us', 'EduMatric is a Bangladesh Based prominent education consultancy company providing support to students who are keen to Study in USA, Canada, Australia, UK, Europe, Malaysia and China.', 'https://admin.edumatric.com/uploads/sectionimage/NKzg9n1BtpZmqSPX606DxLjfQ1rOGvdSbm0fkofx.webp', 'https://www.youtube.com/embed/1hG76KHwilM?si=AJRzoxDObxqr0_nv', '/about', 'EduMatric is an authorized agent of 2000+ universities of 20+ countries. We provide A to Z support to students to pursue higher education in abroad.', 1, 1, 1, '2023-08-27 01:00:02', '2023-09-10 02:26:14');
+(1, 'About Us', 'EduMatric is a Bangladesh Based prominent education consultancy company providing support to students who are keen to Study in USA, Canada, Australia, UK, Europe, Malaysia and China.', 'https://admin.edumatric.com/uploads/sectionimage/NKzg9n1BtpZmqSPX606DxLjfQ1rOGvdSbm0fkofx.webp', 'https://www.youtube.com/embed/1hG76KHwilM?si=AJRzoxDObxqr0_nv', '/about', 'EduMatric is an authorized agent of 2000+ universities of 20+ countries. We provide A to Z support to students to pursue higher education in abroad.', 1, 1, 1, '2023-08-27 01:00:02', '2023-09-10 02:26:14'),
+(2, 'Video Section', 'This is the video section', 'http://127.0.0.1:8000/uploads/', 'https://www.youtube.com/watch?v=-keQkBhqAug', '/video', 'Here you can add video link', 2, 8, 1, '2024-03-29 21:47:21', '2024-03-30 23:55:47'),
+(3, 'Analysis of Customer Requirements', 'Accross all major countries', 'http://127.0.0.1:8000/uploads/', NULL, '/feature1', 'icofont-folder', 3, 7, 1, '2024-03-30 23:58:50', '2024-03-30 23:58:50'),
+(4, 'Project Design and Outsourcing', 'Straight to the point', 'http://127.0.0.1:8000/uploads/', NULL, '/feature2', 'icofont-prescription', 4, 7, 1, '2024-03-31 00:00:17', '2024-03-31 00:00:17'),
+(6, 'Cooperation with embassy and recruitment channels', 'Prestigious jobs guaranteed', 'http://127.0.0.1:8000/uploads/', NULL, '/feature3', 'icofont-business-man-alt-1', 5, 7, 1, '2024-03-31 00:01:45', '2024-03-31 00:01:45'),
+(13, 'Notice', 'This is the notice section', 'http://127.0.0.1:8000/uploads/', NULL, '/notice', 'সায়েদ রোমানিয়ার পক্ষ থেকে সবাইকে জানাচ্ছি পবিত্র ঈদুল ফিতরের শুভেচ্ছ। সায়েদ রোমানিয়া ওভারসীজ লিমিটেডে চলছে ইউরোপের বিভিন্ন দেশের ওয়ার্ক পারমিট ভিসার আকর্ষনীয় সব অফার..!', 6, 9, 1, '2024-04-01 23:22:07', '2024-04-01 23:22:07');
 
 -- --------------------------------------------------------
 
@@ -1533,7 +1563,7 @@ ALTER TABLE `contacts`
 -- AUTO_INCREMENT for table `counters`
 --
 ALTER TABLE `counters`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `countries`
@@ -1587,13 +1617,13 @@ ALTER TABLE `images`
 -- AUTO_INCREMENT for table `menus`
 --
 ALTER TABLE `menus`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=153;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=155;
 
 --
 -- AUTO_INCREMENT for table `newsfeeds`
@@ -1611,7 +1641,7 @@ ALTER TABLE `personal_access_tokens`
 -- AUTO_INCREMENT for table `recent_visas`
 --
 ALTER TABLE `recent_visas`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `reviews`
@@ -1623,7 +1653,7 @@ ALTER TABLE `reviews`
 -- AUTO_INCREMENT for table `sections`
 --
 ALTER TABLE `sections`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT for table `sliders`

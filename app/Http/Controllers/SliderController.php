@@ -50,7 +50,7 @@ class SliderController extends Controller
         $path = "";
         if($request->hasFile('image')){  
             $image = $request->file('image');
-            $path = $image->store('sliderimage', 'public'); // Store the image in the "public/companyimage" directory
+            $path = $image->store('sliderimage', 'public'); // Store the image in the "public/sliderimage" directory
         } 
         
         $profile = Slider::create([
@@ -59,7 +59,6 @@ class SliderController extends Controller
             '_flag' => $request->flags,
             '_status' => $request->status,
             '_image' => asset("/uploads")."/".$path
-            
         ]);
 
         return response()->json(['status' => true, 'profile' => $profile]);

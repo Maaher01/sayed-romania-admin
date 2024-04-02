@@ -10,22 +10,12 @@ import ListItemIcon from "@mui/material/ListItemIcon";
 import ListItemText from "@mui/material/ListItemText";
 import SettingsIcon from "@mui/icons-material/Settings";
 import FlagIcon from "@mui/icons-material/Flag";
-import WorkspacePremiumIcon from "@mui/icons-material/WorkspacePremium";
-import SchoolIcon from "@mui/icons-material/School";
-import MenuBookIcon from "@mui/icons-material/MenuBook";
 import { Link } from "react-router-dom";
-import SupervisedUserCircleIcon from "@mui/icons-material/SupervisedUserCircle";
-import PermContactCalendarIcon from "@mui/icons-material/PermContactCalendar";
-import CameraAltIcon from "@mui/icons-material/CameraAlt";
 import TuneIcon from "@mui/icons-material/Tune";
 import WidgetsIcon from "@mui/icons-material/Widgets";
 import AddRoadIcon from "@mui/icons-material/AddRoad";
 import RemoveRedEyeIcon from "@mui/icons-material/RemoveRedEye";
-import HelpOutlineIcon from "@mui/icons-material/HelpOutline";
-import ShareIcon from "@mui/icons-material/Share";
-import EventIcon from "@mui/icons-material/Event";
 import FeedIcon from "@mui/icons-material/Feed";
-import AppRegistrationIcon from "@mui/icons-material/AppRegistration";
 import AddCircleIcon from "@mui/icons-material/AddCircle";
 import WorkHistoryIcon from "@mui/icons-material/WorkHistory";
 const drawerWidth = 230;
@@ -105,11 +95,11 @@ const ClippedDrawer = () => {
                   <ListItemIcon>
                     <FlagIcon />
                   </ListItemIcon>
-                  <ListItemText primary={"Country"} />
+                  <ListItemText primary={"Clients"} />
                 </ListItemButton>
               </ListItem>
             </Link>
-            <Link
+            {/* <Link
               style={{
                 textDecoration: "none",
                 color: "rgba(44, 56, 74, .681)",
@@ -124,8 +114,8 @@ const ClippedDrawer = () => {
                   <ListItemText primary={"Degree"} />
                 </ListItemButton>
               </ListItem>
-            </Link>
-            <Link
+            </Link> */}
+            {/* <Link
               style={{
                 textDecoration: "none",
                 color: "rgba(44, 56, 74, .681)",
@@ -140,8 +130,8 @@ const ClippedDrawer = () => {
                   <ListItemText primary={"University"} />
                 </ListItemButton>
               </ListItem>
-            </Link>
-            <Link
+            </Link> */}
+            {/* <Link
               style={{
                 textDecoration: "none",
                 color: "rgba(44, 56, 74, .681)",
@@ -156,11 +146,11 @@ const ClippedDrawer = () => {
                   <ListItemText primary={"Course"} />
                 </ListItemButton>
               </ListItem>
-            </Link>
+            </Link> */}
           </List>
           <Divider />
           <List>
-            <Link
+            {/* <Link
               style={{
                 textDecoration: "none",
                 color: "rgba(44, 56, 74, .681)",
@@ -175,8 +165,8 @@ const ClippedDrawer = () => {
                   <ListItemText primary={"Client"} />
                 </ListItemButton>
               </ListItem>
-            </Link>
-            <Link
+            </Link> */}
+            {/* <Link
               style={{
                 textDecoration: "none",
                 color: "rgba(44, 56, 74, .681)",
@@ -191,8 +181,8 @@ const ClippedDrawer = () => {
                   <ListItemText primary={"Contact"} />
                 </ListItemButton>
               </ListItem>
-            </Link>
-            <Link
+            </Link> */}
+            {/* <Link
               style={{
                 textDecoration: "none",
                 color: "rgba(44, 56, 74, .681)",
@@ -207,7 +197,7 @@ const ClippedDrawer = () => {
                   <ListItemText primary={"University Image"} />
                 </ListItemButton>
               </ListItem>
-            </Link>
+            </Link> */}
             <Link
               style={{
                 textDecoration: "none",
@@ -273,7 +263,7 @@ const ClippedDrawer = () => {
                 </ListItemButton>
               </ListItem>
             </Link>
-            <Link
+            {/* <Link
               style={{
                 textDecoration: "none",
                 color: "rgba(44, 56, 74, .681)",
@@ -288,7 +278,7 @@ const ClippedDrawer = () => {
                   <ListItemText primary={"Question"} />
                 </ListItemButton>
               </ListItem>
-            </Link>
+            </Link> */}
 
             <Link
               style={{
@@ -341,7 +331,7 @@ const ClippedDrawer = () => {
               </ListItem>
             </Link>
 
-            <Link
+            {/* <Link
               style={{
                 textDecoration: "none",
                 color: "rgba(44, 56, 74, .681)",
@@ -356,9 +346,9 @@ const ClippedDrawer = () => {
                   <ListItemText primary={"Social Link"} />
                 </ListItemButton>
               </ListItem>
-            </Link>
+            </Link> */}
 
-            <Link
+            {/* <Link
               style={{
                 textDecoration: "none",
                 color: "rgba(44, 56, 74, .681)",
@@ -373,9 +363,9 @@ const ClippedDrawer = () => {
                   <ListItemText primary={"Event"} />
                 </ListItemButton>
               </ListItem>
-            </Link>
+            </Link> */}
 
-            <Link
+            {/* <Link
               style={{
                 textDecoration: "none",
                 color: "rgba(44, 56, 74, .681)",
@@ -390,7 +380,7 @@ const ClippedDrawer = () => {
                   <ListItemText primary={"Student Reg"} />
                 </ListItemButton>
               </ListItem>
-            </Link>
+            </Link> */}
           </List>
         </Box>
       </Drawer>

@@ -51,10 +51,59 @@ class CounterController extends Controller
      * @param  \App\Models\Counter  $counter
      * @return \Illuminate\Http\Response
      */
-    public function show(Counter $counter)
+    public function show(Request $request, Counter $counter)
     {
-        $profile = Counter::all();
+        $limit = $request->limit;
+        $profile = Counter::paginate($limit);
 
         return response()->json(['status' => true, 'data' => $profile]);
+    }
+
+    /**
+     * Show the form for editing the specified resource.
+     *
+     * @param  \App\Models\Counter  $couner
+     * @return \Illuminate\Http\Response
+     */
+    public function edit(Counter $counter , $id)
+    {
+        $profile = Counter::where('id',$id)->first();
+        return response()->json(['status' => true, 'data' => $profile]);
+    }
+
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  \App\Models\Menu  $menu
+     * @return \Illuminate\Http\Response
+     */
+    public function update(Request $request, Counter $counter , $id)
+    {
+        $validator = Validator::make($request->all(), [
+            'name' => ['required', 'string', 'max:255'],
+            'amount' => ['required', 'integer'],
+        ]);
+
+        if($validator->fails()) {
+            return response()->json(['status' => false, 'message' => 'Validation Error', 'errors' => $validator->errors()], 202);
+        }
+
+        $profile = Counter::where('id', '=', $id)->update([
+            '_name' => request -> name,
+            '_amount' => request -> amount,
+            '_status' => request -> status,
+        ]);
+    }
+
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param  \App\Models\Counter  $counter
+     * @return \Illuminate\Http\Response
+     */
+    public function destroy(Counter $counter)
+    {
+        //
     }
 }
