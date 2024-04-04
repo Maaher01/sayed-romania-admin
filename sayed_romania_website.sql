@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 02, 2024 at 08:04 AM
+-- Generation Time: Apr 04, 2024 at 11:26 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.0.30
 
@@ -69,6 +69,35 @@ CREATE TABLE `companyprofiles` (
 
 INSERT INTO `companyprofiles` (`id`, `_name`, `_email`, `_phone`, `_mobile`, `_latlong`, `_description`, `_website`, `_image`, `created_at`, `updated_at`) VALUES
 (2, 'Edumatric', 'info@edumatric.com', '+8801758374376', '+8801709990909', '23.7766154,90.409216', '6 Gulshan Avenue, Gulshan-1, Dhaka-1212, Bangladesh.', 'edumatric.com', 'http://127.0.0.1:8000/uploads/companyimage/RdxKzM81WAo6KYEguLQh19KPKZxpf8ZRGPG8izDT.svg', '2023-08-19 07:13:10', '2024-03-25 17:25:22');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `components`
+--
+
+CREATE TABLE `components` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `_title` varchar(191) NOT NULL,
+  `_subtitle` varchar(191) DEFAULT NULL,
+  `_image` varchar(191) DEFAULT NULL,
+  `_videourl` varchar(191) DEFAULT NULL,
+  `_link` varchar(191) DEFAULT NULL,
+  `_description` varchar(191) DEFAULT NULL,
+  `_sort` int(11) NOT NULL,
+  `_menuid` int(11) NOT NULL,
+  `_sectionid` int(11) NOT NULL,
+  `_status` tinyint(4) NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `components`
+--
+
+INSERT INTO `components` (`id`, `_title`, `_subtitle`, `_image`, `_videourl`, `_link`, `_description`, `_sort`, `_menuid`, `_sectionid`, `_status`, `created_at`, `updated_at`) VALUES
+(7, 'video component', 'this is the video component 1', 'http://127.0.0.1:8000/uploads/', NULL, NULL, 'this is the description of the video component 1', 1, 8, 2, 1, '2024-04-03 00:42:13', '2024-04-03 00:42:13');
 
 -- --------------------------------------------------------
 
@@ -909,14 +938,14 @@ CREATE TABLE `menus` (
 --
 
 INSERT INTO `menus` (`id`, `_title`, `_url`, `_parentmenuid`, `_sort`, `_status`, `created_at`, `updated_at`) VALUES
-(1, 'About', 'portfoliodetail', 0, 2, 1, '2023-08-25 16:31:37', '2024-03-26 04:44:03'),
-(2, 'Courses', '/courses', 0, 3, 2, '2023-08-25 16:32:05', '2024-03-25 17:24:21'),
-(3, 'Event', '/event', 0, 3, 2, '2023-08-25 16:32:33', '2024-03-25 17:24:33'),
-(4, 'Home', '/', 0, 1, 1, '2023-08-25 16:33:40', '2024-03-26 04:43:26'),
-(5, 'Contact', 'contact-us', 0, 5, 1, '2023-08-25 16:34:07', '2024-03-25 17:30:15'),
-(7, 'Features', '/features', 0, 6, 2, '2024-03-30 23:42:24', '2024-03-30 23:42:24'),
-(8, 'Video', '/video', 0, 7, 2, '2024-03-30 23:54:41', '2024-03-30 23:54:41'),
-(9, 'Notice', '/notice', 0, 8, 2, '2024-04-01 23:19:26', '2024-04-01 23:19:26');
+(1, 'About', 'portfoliodetail', 0, 2, 1, '2023-08-25 10:31:37', '2024-03-25 22:44:03'),
+(2, 'Courses', '/courses', 0, 3, 2, '2023-08-25 10:32:05', '2024-03-25 11:24:21'),
+(3, 'Event', '/event', 0, 3, 2, '2023-08-25 10:32:33', '2024-03-25 11:24:33'),
+(4, 'Home', '/', 0, 1, 1, '2023-08-25 10:33:40', '2024-03-25 22:43:26'),
+(5, 'Contact', 'contact-us', 0, 5, 1, '2023-08-25 10:34:07', '2024-03-25 11:30:15'),
+(7, 'Features', '/features', 0, 6, 2, '2024-03-30 17:42:24', '2024-03-30 17:42:24'),
+(8, 'Video', '/video', 0, 7, 2, '2024-03-30 17:54:41', '2024-03-30 17:54:41'),
+(9, 'Notice', '/notice', 0, 8, 2, '2024-04-01 17:19:26', '2024-04-01 17:19:26');
 
 -- --------------------------------------------------------
 
@@ -968,7 +997,9 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (151, '2024_03_28_083611_create_counters_table', 15),
 (152, '2024_03_28_100941_create_counters_table', 16),
 (153, '2024_03_31_043338_create_counters_table', 17),
-(154, '2024_03_31_043648_create_recent_visas_table', 18);
+(154, '2024_03_31_043648_create_recent_visas_table', 18),
+(155, '2024_04_02_071531_create_components_table', 19),
+(156, '2024_04_02_071655_create_components_table', 20);
 
 -- --------------------------------------------------------
 
@@ -1181,10 +1212,8 @@ CREATE TABLE `sociallinks` (
 --
 
 INSERT INTO `sociallinks` (`id`, `_title`, `_url`, `created_at`, `updated_at`) VALUES
-(1, 'fa fa-facebook', 'https://www.facebook.com/edumatricofficial', '2023-08-25 16:28:05', '2023-08-26 04:37:40'),
-(2, 'fa fa-youtube-play', 'https://www.youtube.com/@edumatric', '2023-08-25 16:45:53', '2023-08-26 05:01:17'),
-(3, 'fa fa-twitter', 'https://twitter.com/edumatricbd', '2023-08-25 16:46:27', '2023-08-26 05:10:46'),
-(4, 'fa fa-instagram', 'https://www.instagram.com/edumatric/', '2023-08-26 04:57:20', '2023-08-26 04:57:20');
+(1, 'fa fa-facebook', 'https://www.facebook.com/sayedahmed786678/', '2023-08-25 16:28:05', '2024-04-04 01:47:49'),
+(2, 'fa fa-youtube-play', 'https://www.youtube.com/@sayedahmedromania1255', '2023-08-25 16:45:53', '2024-04-04 01:48:52');
 
 -- --------------------------------------------------------
 
@@ -1388,6 +1417,12 @@ ALTER TABLE `companyprofiles`
   ADD UNIQUE KEY `companyprofiles__email_unique` (`_email`);
 
 --
+-- Indexes for table `components`
+--
+ALTER TABLE `components`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `contacts`
 --
 ALTER TABLE `contacts`
@@ -1554,6 +1589,12 @@ ALTER TABLE `companyprofiles`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
+-- AUTO_INCREMENT for table `components`
+--
+ALTER TABLE `components`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+
+--
 -- AUTO_INCREMENT for table `contacts`
 --
 ALTER TABLE `contacts`
@@ -1623,7 +1664,7 @@ ALTER TABLE `menus`
 -- AUTO_INCREMENT for table `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=155;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=157;
 
 --
 -- AUTO_INCREMENT for table `newsfeeds`
