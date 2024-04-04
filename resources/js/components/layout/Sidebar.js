@@ -18,6 +18,7 @@ import RemoveRedEyeIcon from "@mui/icons-material/RemoveRedEye";
 import FeedIcon from "@mui/icons-material/Feed";
 import AddCircleIcon from "@mui/icons-material/AddCircle";
 import WorkHistoryIcon from "@mui/icons-material/WorkHistory";
+import ShareIcon from "@mui/icons-material/Share";
 const drawerWidth = 230;
 
 const ClippedDrawer = () => {
@@ -331,7 +332,7 @@ const ClippedDrawer = () => {
               </ListItem>
             </Link>
 
-            {/* <Link
+            <Link
               style={{
                 textDecoration: "none",
                 color: "rgba(44, 56, 74, .681)",
@@ -346,7 +347,7 @@ const ClippedDrawer = () => {
                   <ListItemText primary={"Social Link"} />
                 </ListItemButton>
               </ListItem>
-            </Link> */}
+            </Link>
 
             {/* <Link
               style={{
