@@ -19,6 +19,7 @@ import FeedIcon from "@mui/icons-material/Feed";
 import AddCircleIcon from "@mui/icons-material/AddCircle";
 import WorkHistoryIcon from "@mui/icons-material/WorkHistory";
 import ShareIcon from "@mui/icons-material/Share";
+import BookIcon from "@mui/icons-material/Book";
 const drawerWidth = 230;
 
 const ClippedDrawer = () => {
@@ -100,6 +101,7 @@ const ClippedDrawer = () => {
                 </ListItemButton>
               </ListItem>
             </Link>
+
             {/* <Link
               style={{
                 textDecoration: "none",
@@ -212,6 +214,22 @@ const ClippedDrawer = () => {
                     <TuneIcon />
                   </ListItemIcon>
                   <ListItemText primary={"Slider"} />
+                </ListItemButton>
+              </ListItem>
+            </Link>
+            <Link
+              style={{
+                textDecoration: "none",
+                color: "rgba(44, 56, 74, .681)",
+              }}
+              to="/app/blog"
+            >
+              <ListItem disablePadding>
+                <ListItemButton>
+                  <ListItemIcon>
+                    <BookIcon />
+                  </ListItemIcon>
+                  <ListItemText primary={"Blogs"} />
                 </ListItemButton>
               </ListItem>
             </Link>

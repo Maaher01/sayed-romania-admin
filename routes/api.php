@@ -24,6 +24,7 @@ use App\Http\Controllers\StudentregistrationController;
 use App\Http\Controllers\GeneralqueryController;
 use App\Http\Controllers\RecentVisaController;
 use App\Http\Controllers\CounterController;
+use App\Http\Controllers\BlogController;
 /*
 /*
 |--------------------------------------------------------------------------
@@ -38,6 +39,11 @@ use App\Http\Controllers\CounterController;
 
 Route::post('login', [LoginController::class, 'authenticate']);
 Route::post('registration', [RegistrationController::class, 'register']);
+
+Route::get('blog', [BlogController::class, 'show']);
+Route::post('blog/add', [BlogController::class, 'store']);
+Route::get('blog/edit/{id}', [BlogController::class, 'edit']);
+Route::post('blog/update/{id}', [BlogController::class, 'update']);
 
 Route::post('companysetup', [CompanyprofileController::class, 'create']);
 Route::get('companysetup', [CompanyprofileController::class, 'show']);

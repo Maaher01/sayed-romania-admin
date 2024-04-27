@@ -181,7 +181,7 @@ const Edit = () => {
             )}
           </Grid>
           <Grid item xs={6}>
-            <Button variant={"contained"} type={"submit"} sx={{ mt: 3, mb: 2 }}>
+            <Button variant={"outlined"} type={"submit"} sx={{ mt: 3, mb: 2 }}>
               Submit
             </Button>
           </Grid>

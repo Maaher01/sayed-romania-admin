@@ -69,6 +69,7 @@ const Edit = () => {
     await axios
       .get(`/api/menu/edit/${params.id}`)
       .then(({ data }) => {
+        console.log(data);
         const alldata = data.data;
         setTitle(alldata._title);
         setUrl(alldata._url);

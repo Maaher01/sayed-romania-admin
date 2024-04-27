@@ -56,6 +56,9 @@ import RecentVisaSuccessList from "./page/recentvisasuccess/List";
 import AddRecentVisaSuccess from "./page/recentvisasuccess/Add";
 import CounterList from "./page/counter/List";
 import AddCounter from "./page/counter/Add";
+import BlogList from "./page/blog/List";
+import Addblog from "./page/blog/Add";
+import Editblog from "./page/blog/Edit";
 import ProtectedRoute from "./ProtectedRoute";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
@@ -94,6 +97,30 @@ function Main() {
             element={
               <ProtectedRoute>
                 <Registration />
+              </ProtectedRoute>
+            }
+          ></Route>
+          <Route
+            path={"/app/blog"}
+            element={
+              <ProtectedRoute>
+                <BlogList />
+              </ProtectedRoute>
+            }
+          ></Route>
+          <Route
+            path={"/app/blog/add"}
+            element={
+              <ProtectedRoute>
+                <Addblog />
+              </ProtectedRoute>
+            }
+          ></Route>
+          <Route
+            path={"/app/blog/edit/:id"}
+            element={
+              <ProtectedRoute>
+                <Editblog />
               </ProtectedRoute>
             }
           ></Route>
