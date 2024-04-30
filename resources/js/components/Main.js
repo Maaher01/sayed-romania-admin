@@ -59,6 +59,12 @@ import AddCounter from "./page/counter/Add";
 import BlogList from "./page/blog/List";
 import Addblog from "./page/blog/Add";
 import Editblog from "./page/blog/Edit";
+import ClientInfoList from "./page/clientinfo/List";
+import ClientInfoAdd from "./page/clientinfo/Add";
+import ClientInfoEdit from "./page/clientinfo/Edit";
+import ClientStatusList from "./page/clientstatus/List";
+import ClientStatusAdd from "./page/clientstatus/Add";
+import ClientStatusEdit from "./page/clientstatus/Edit";
 import ProtectedRoute from "./ProtectedRoute";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
@@ -121,6 +127,54 @@ function Main() {
             element={
               <ProtectedRoute>
                 <Editblog />
+              </ProtectedRoute>
+            }
+          ></Route>
+          <Route
+            path={"/app/clientinfo"}
+            element={
+              <ProtectedRoute>
+                <ClientInfoList />
+              </ProtectedRoute>
+            }
+          ></Route>
+          <Route
+            path={"/app/clientinfo/add"}
+            element={
+              <ProtectedRoute>
+                <ClientInfoAdd />
+              </ProtectedRoute>
+            }
+          ></Route>
+          <Route
+            path={"/app/clientinfo/edit/:id"}
+            element={
+              <ProtectedRoute>
+                <ClientInfoEdit />
+              </ProtectedRoute>
+            }
+          ></Route>
+          <Route
+            path={"/app/clientstatus"}
+            element={
+              <ProtectedRoute>
+                <ClientStatusList />
+              </ProtectedRoute>
+            }
+          ></Route>
+          <Route
+            path={"/app/clientstatus/add"}
+            element={
+              <ProtectedRoute>
+                <ClientStatusAdd />
+              </ProtectedRoute>
+            }
+          ></Route>
+          <Route
+            path={"/app/clientstatus/edit/:id"}
+            element={
+              <ProtectedRoute>
+                <ClientStatusEdit />
               </ProtectedRoute>
             }
           ></Route>
