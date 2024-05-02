@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Button } from "@mui/material";
+import { Avatar, Button } from "@mui/material";
 import "react-toastify/dist/ReactToastify.css";
 import Grid from "@mui/material/Grid";
 import Layout from "../../layout/Layout";
@@ -27,7 +27,14 @@ const List = () => {
     },
     {
       name: "Image",
-      selector: (row) => row._image,
+      // selector: (row) => row._image,
+      cell: (row) => (
+        <Avatar
+          src={row._image}
+          sx={{ width: 100, height: 100 }}
+          variant="rounded"
+        />
+      ),
       center: true,
       width: "250px",
     },
