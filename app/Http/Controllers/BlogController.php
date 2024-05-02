@@ -38,7 +38,7 @@ class BlogController extends Controller
     {
         $validator = Validator::make($request->all(), [
             'title' => ['required', 'string', 'max:255'],
-            'subtitle' => ['required', 'string']
+            'description' => ['required', 'string'],
         ]);
 
         if($validator->fails()) {
@@ -55,10 +55,12 @@ class BlogController extends Controller
         $profile = Blog::create([
             '_title' => $request->title,
             '_subtitle' => $request->subtitle,
+            '_description' => $request->description,
+            '_slug' => $request->slug,
+            '_tags' => $request->tags,
             '_date' => date("Y-m-d ",strtotime($request->date)),
             '_status' => $request->status,
-            '_image' => asset("/uploads")."/".$path
-            
+            '_image' => asset("/uploads")."/".$path 
         ]);
 
         return response()->json(['status' => true, 'profile' => $profile]);
@@ -101,7 +103,7 @@ class BlogController extends Controller
     {
         $validator = Validator::make($request->all(), [
             'title' => ['required', 'string', 'max:255'],
-            'subtitle' => ['required', 'string'],
+            'description' => ['required', 'string'],
         ]);
 
         if($validator->fails()) {
@@ -118,17 +120,22 @@ class BlogController extends Controller
             $profile = Blog::where('id', '=', $id)->update([
                 '_title' => $request->title,
                 '_subtitle' => $request->subtitle,
+                '_description' => $request->description,
+                '_slug' => $request->slug,
+                '_tags' => $request->tags,
                 '_date' => date("Y-m-d ",strtotime($request->date)),
                 '_status' => $request->status,
-                '_image' => asset("/uploads")."/".$path
-               
+                '_image' => asset("/uploads")."/".$path 
             ]);
         }else{
             $profile = Blog::where('id', '=', $id)->update([
                 '_title' => $request->title,
                 '_subtitle' => $request->subtitle,
+                '_description' => $request->description,
+                '_slug' => $request->slug,
+                '_tags' => $request->tags,
                 '_date' => date("Y-m-d ",strtotime($request->date)),
-                '_status' => $request->status
+                '_status' => $request->status,
             ]);
         }
         

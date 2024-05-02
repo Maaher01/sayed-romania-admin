@@ -12,6 +12,8 @@ import Layout from "../../layout/Layout";
 import BackupIcon from "@mui/icons-material/Backup";
 import { toast } from "react-toastify";
 import dayjs from "dayjs";
+import ReactQuill from "react-quill";
+import "react-quill/dist/quill.snow.css";
 import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
 import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 import { DatePicker } from "@mui/x-date-pickers/DatePicker";
@@ -21,7 +23,9 @@ const Add = () => {
   const [status, setStatus] = useState("");
   const [imageUrl, setImageUrl] = useState(null);
   const [img, setImg] = useState(null);
+  const [description, setDescription] = useState("");
   const [publishdate, setPublishdate] = useState(dayjs());
+
   const handleChangestatus = (event) => {
     setStatus(event.target.value);
   };
@@ -32,10 +36,14 @@ const Add = () => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
+
     const formData = new FormData(event.currentTarget);
+
     formData.append("status", status);
     formData.append("image", img);
     formData.append("date", publishdate);
+    formData.append("description", description);
+
     axios
       .post("/api/blog/add", formData)
       .then(function (response) {
@@ -95,6 +103,45 @@ const Add = () => {
               />
             </Grid>
 
+            <Grid item xs={12}>
+              <ReactQuill
+                theme="snow"
+                value={description}
+                onChange={setDescription}
+                id="standard-basic"
+                fullWidth
+                style={{ backgroundColor: "white", height: "200px" }}
+                name="description"
+                label="Description"
+                multiline
+                maxRows={10}
+              />
+            </Grid>
+            <Grid item xs={12}>
+              <TextField
+                id="standard-basic"
+                fullWidth
+                name="tags"
+                label="Tags"
+                variant="outlined"
+                multiline
+                maxRows={10}
+                InputProps={{ style: { backgroundColor: "white" } }}
+              />
+            </Grid>
+            <Grid item xs={12}>
+              <TextField
+                id="standard-basic"
+                fullWidth
+                name="slug"
+                label="Slug"
+                variant="outlined"
+                multiline
+                maxRows={10}
+                InputProps={{ style: { backgroundColor: "white" } }}
+              />
+            </Grid>
+
             <Grid item xs={6}>
               <LocalizationProvider dateAdapter={AdapterDayjs}>
                 <DatePicker
@@ -132,7 +179,6 @@ const Add = () => {
               startIcon={<BackupIcon />}
               component="label"
             >
-              {" "}
               Upload Logo
               <input
                 type="file"

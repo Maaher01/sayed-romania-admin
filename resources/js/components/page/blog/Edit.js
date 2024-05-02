@@ -13,6 +13,8 @@ import BackupIcon from "@mui/icons-material/Backup";
 import { toast } from "react-toastify";
 import { useParams } from "react-router-dom";
 import dayjs from "dayjs";
+import ReactQuill from "react-quill";
+import "react-quill/dist/quill.snow.css";
 import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
 import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 import { DatePicker } from "@mui/x-date-pickers/DatePicker";
@@ -24,6 +26,9 @@ const Add = () => {
   const [imageUrl, setImageUrl] = useState("");
   const [title, setTitle] = useState("");
   const [subtitle, setSubtitle] = useState("");
+  const [slug, setSlug] = useState("");
+  const [description, setDescription] = useState("");
+  const [tags, setTags] = useState("");
   const [publishdate, setPublishdate] = useState(dayjs());
 
   const [img, setImg] = useState("");
@@ -38,10 +43,14 @@ const Add = () => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
+
     const formData = new FormData(event.currentTarget);
+
     formData.append("status", status);
     formData.append("image", img);
     formData.append("date", publishdate);
+    formData.append("description", description);
+
     axios
       .post(`/api/blog/update/${params.id}`, formData)
       .then(function (response) {
@@ -50,9 +59,9 @@ const Add = () => {
         } else {
           toast("Data Updated Successful");
         }
-        // navigate("/app/dashboard");
+        navigate("/app/blog");
       })
-      .catch(function (error) {
+      .catch((error) => {
         console.log(error.message);
         toast("An Error Occured");
       });
@@ -81,6 +90,9 @@ const Add = () => {
         setTitle(alldata._title);
         setSubtitle(alldata._subtitle);
         setStatus(alldata._status);
+        setDescription(alldata._description);
+        setSlug(alldata._slug);
+        setTags(alldata._tags);
         setImageUrl(alldata._image);
         setPublishdate(dayjs(alldata._date));
         toast("Data Found");
@@ -128,6 +140,59 @@ const Add = () => {
               />
             </Grid>
             <Grid item xs={1}></Grid>
+            <Grid item xs={11}>
+              {/* <TextField
+                id="standard-basic"
+                fullWidth
+                name="description"
+                value={description}
+                label="Description"
+                variant="outlined"
+                onChange={(e) => setDescription(e.target.value)}
+                InputProps={{ style: { backgroundColor: "white" } }}
+                multiline
+                maxRows={10}
+              /> */}
+              <ReactQuill
+                name="description"
+                label="Description"
+                multiline
+                value={description}
+                onChange={(value) => setDescription(value)}
+                style={{ backgroundColor: "white", height: "200px" }}
+              />
+            </Grid>
+            <Grid item xs={1}></Grid>
+            <Grid item xs={11}>
+              <TextField
+                id="standard-basic"
+                fullWidth
+                name="tags"
+                value={tags}
+                label="Tags"
+                variant="outlined"
+                onChange={(e) => setTags(e.target.value)}
+                InputProps={{ style: { backgroundColor: "white" } }}
+                multiline
+                maxRows={10}
+              />
+            </Grid>
+            <Grid item xs={1}></Grid>
+            <Grid item xs={11}>
+              <TextField
+                id="standard-basic"
+                fullWidth
+                name="slug"
+                value={slug}
+                label="Slug"
+                variant="outlined"
+                onChange={(e) => setSlug(e.target.value)}
+                InputProps={{ style: { backgroundColor: "white" } }}
+                multiline
+                maxRows={10}
+              />
+            </Grid>
+            <Grid item xs={1}></Grid>
             <Grid item xs={11} sx={{ mt: 2 }}>
               <LocalizationProvider dateAdapter={AdapterDayjs}>
                 <DatePicker
@@ -167,7 +232,6 @@ const Add = () => {
                 startIcon={<BackupIcon />}
                 component="label"
               >
-                {" "}
                 Upload Logo
                 <input
                   type="file"
