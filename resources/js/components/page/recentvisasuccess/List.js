@@ -20,10 +20,16 @@ const List = () => {
       center: true,
     },
     {
+      name: "Status",
+      cell: (row) => <img src={row._status} width={50} alt={"nothing"} />,
+      selector: (row) => row.link,
+      center: true,
+    },
+    {
       name: "Actions",
       cell: (row) => (
         <div style={{ display: "flex", gap: "10px" }}>
-          <Link to={``} className="btn">
+          <Link to={`/app/recentvisasuccess/edit/${row.id}`} className="btn">
             <i className="material-icons text-warning">
               <CreateIcon sx={{ color: "green" }} />
             </i>

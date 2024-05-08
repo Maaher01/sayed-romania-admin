@@ -75,7 +75,7 @@ class CounterController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Menu  $menu
+     * @param  \App\Models\Counter  $counter
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, Counter $counter , $id)
@@ -90,9 +90,9 @@ class CounterController extends Controller
         }
 
         $profile = Counter::where('id', '=', $id)->update([
-            '_name' => request -> name,
-            '_amount' => request -> amount,
-            '_status' => request -> status,
+            '_name' => $request->name,
+            '_amount' => $request->amount,
+            '_status' => $request->status,
         ]);
     }
 

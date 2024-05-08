@@ -54,10 +54,13 @@ import Addstudentregistration from "./page/studentregistration/Add";
 import Editstudentregistration from "./page/studentregistration/Edit";
 import RecentVisaSuccessList from "./page/recentvisasuccess/List";
 import AddRecentVisaSuccess from "./page/recentvisasuccess/Add";
+import Editrecentvisasuccess from "./page/recentvisasuccess/Edit";
 import RecentWorkPermitList from "./page/recentworkpermit/List";
 import AddRecentWorkPermit from "./page/recentworkpermit/Add";
+import Editrecentworkpermit from "./page/recentworkpermit/Edit";
 import CounterList from "./page/counter/List";
 import AddCounter from "./page/counter/Add";
+import EditCounter from "./page/counter/Edit";
 import BlogList from "./page/blog/List";
 import Addblog from "./page/blog/Add";
 import Editblog from "./page/blog/Edit";
@@ -581,6 +584,14 @@ function Main() {
             }
           ></Route>
           <Route
+            path={"/app/recentvisasuccess/edit/:id"}
+            element={
+              <ProtectedRoute>
+                <Editrecentvisasuccess />
+              </ProtectedRoute>
+            }
+          ></Route>
+          <Route
             path={"/app/recentworkpermit"}
             element={
               <ProtectedRoute>
@@ -597,6 +608,14 @@ function Main() {
             }
           ></Route>
           <Route
+            path={"/app/recentworkpermit/edit/:id"}
+            element={
+              <ProtectedRoute>
+                <Editrecentworkpermit />
+              </ProtectedRoute>
+            }
+          ></Route>
+          <Route
             path={"/app/counter"}
             element={
               <ProtectedRoute>
@@ -609,6 +628,14 @@ function Main() {
             element={
               <ProtectedRoute>
                 <AddCounter />
+              </ProtectedRoute>
+            }
+          ></Route>
+          <Route
+            path={"/app/counter/edit/:id"}
+            element={
+              <ProtectedRoute>
+                <EditCounter />
               </ProtectedRoute>
             }
           ></Route>

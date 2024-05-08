@@ -161,14 +161,18 @@ Route::post('generalquery/update/{id}', [GeneralqueryController::class, 'update'
 
 Route::get('recentvisasuccess', [RecentVisaController::class, 'show']);
 Route::post('recentvisasuccess/add', [RecentVisaController::class, 'store']);
+Route::get('recentvisasuccess/edit/{id}', [RecentVisaController::class, 'edit']);
+Route::post('recentvisasuccess/update/{id}', [RecentVisaController::class, 'update']);
 
 Route::get('recentworkpermit', [RecentWorkPermitController::class, 'show']);
 Route::post('recentworkpermit/add', [RecentWorkPermitController::class, 'store']);
+Route::get('recentworkpermit/edit/{id}', [RecentWorkPermitController::class, 'edit']);
+Route::post('recentworkpermit/update/{id}', [RecentWorkPermitController::class, 'update']);
 
 Route::get('counter', [CounterController::class, 'show']);
 Route::post('counter/add', [CounterController::class, 'store']);
 Route::get('counter/edit/{id}', [CounterController::class, 'edit']);
-Route::post('counter/edit/{id}', [CounterController::class, 'update']);
+Route::post('counter/update/{id}', [CounterController::class, 'update']);
 
 Route::get('clientinfo', [ClientInfoController::class, 'show']);
 Route::post('clientinfo/add', [ClientInfoController::class, 'store']);

@@ -27,7 +27,7 @@ const List = () => {
       name: "Actions",
       cell: (row) => (
         <div style={{ display: "flex", gap: "10px" }}>
-          <Link to={``} className="btn">
+          <Link to={`/app/counter/edit/${row.id}`} className="btn">
             <i className="material-icons text-warning">
               <CreateIcon sx={{ color: "green" }} />
             </i>
