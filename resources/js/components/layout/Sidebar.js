@@ -29,7 +29,7 @@ import CameraAltIcon from "@mui/icons-material/CameraAlt";
 import HelpOutlineIcon from "@mui/icons-material/HelpOutline";
 import EventIcon from "@mui/icons-material/Event";
 import AppRegistrationIcon from "@mui/icons-material/AppRegistration";
-import AutorenewIcon from "@mui/icons-material/Autorenew";
+import AssuredWorkloadIcon from "@mui/icons-material/AssuredWorkload";
 const drawerWidth = 230;
 
 const ClippedDrawer = () => {
@@ -388,6 +388,23 @@ const ClippedDrawer = () => {
                     <WorkHistoryIcon />
                   </ListItemIcon>
                   <ListItemText primary={"Recent Visas"} />
+                </ListItemButton>
+              </ListItem>
+            </Link>
+
+            <Link
+              style={{
+                textDecoration: "none",
+                color: "rgba(44, 56, 74, .681)",
+              }}
+              to="/app/recentworkpermit"
+            >
+              <ListItem disablePadding>
+                <ListItemButton>
+                  <ListItemIcon>
+                    <AssuredWorkloadIcon />
+                  </ListItemIcon>
+                  <ListItemText primary={"Recent Work Permits"} />
                 </ListItemButton>
               </ListItem>
             </Link>

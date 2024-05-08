@@ -54,6 +54,8 @@ import Addstudentregistration from "./page/studentregistration/Add";
 import Editstudentregistration from "./page/studentregistration/Edit";
 import RecentVisaSuccessList from "./page/recentvisasuccess/List";
 import AddRecentVisaSuccess from "./page/recentvisasuccess/Add";
+import RecentWorkPermitList from "./page/recentworkpermit/List";
+import AddRecentWorkPermit from "./page/recentworkpermit/Add";
 import CounterList from "./page/counter/List";
 import AddCounter from "./page/counter/Add";
 import BlogList from "./page/blog/List";
@@ -575,6 +577,22 @@ function Main() {
             element={
               <ProtectedRoute>
                 <AddRecentVisaSuccess />
+              </ProtectedRoute>
+            }
+          ></Route>
+          <Route
+            path={"/app/recentworkpermit"}
+            element={
+              <ProtectedRoute>
+                <RecentWorkPermitList />
+              </ProtectedRoute>
+            }
+          ></Route>
+          <Route
+            path={"/app/recentworkpermit/add"}
+            element={
+              <ProtectedRoute>
+                <AddRecentWorkPermit />
               </ProtectedRoute>
             }
           ></Route>
