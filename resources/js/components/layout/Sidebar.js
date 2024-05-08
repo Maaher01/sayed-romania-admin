@@ -30,6 +30,7 @@ import HelpOutlineIcon from "@mui/icons-material/HelpOutline";
 import EventIcon from "@mui/icons-material/Event";
 import AppRegistrationIcon from "@mui/icons-material/AppRegistration";
 import AssuredWorkloadIcon from "@mui/icons-material/AssuredWorkload";
+import AutorenewIcon from "@mui/icons-material/AutoRenew";
 const drawerWidth = 230;
 
 const ClippedDrawer = () => {
