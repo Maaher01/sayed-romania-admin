@@ -7,7 +7,6 @@ import Datatablecomponent from "../../Datatable";
 import { Link } from "react-router-dom";
 import AddIcon from "@mui/icons-material/Add";
 import CreateIcon from "@mui/icons-material/Create";
-import DeleteIcon from "@mui/icons-material/Delete";
 
 function List() {
   const [delrow, setDelrow] = useState(0);
@@ -30,11 +29,6 @@ function List() {
           <Link to={`/app/degree/edit/${row.id}`} className="btn">
             <i className="material-icons text-warning">
               <CreateIcon sx={{ color: "green" }} />
-            </i>
-          </Link>
-          <Link className="btn">
-            <i className="material-icons text-warning">
-              <DeleteIcon sx={{ color: "red" }} />
             </i>
           </Link>
         </div>

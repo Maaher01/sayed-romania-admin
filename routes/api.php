@@ -23,6 +23,7 @@ use App\Http\Controllers\EventController;
 use App\Http\Controllers\StudentregistrationController;
 use App\Http\Controllers\GeneralqueryController;
 use App\Http\Controllers\RecentVisaController;
+use App\Http\Controllers\RecentWorkPermitController;
 use App\Http\Controllers\CounterController;
 use App\Http\Controllers\BlogController;
 /*
@@ -158,6 +159,9 @@ Route::post('generalquery/update/{id}', [GeneralqueryController::class, 'update'
 
 Route::get('recentvisasuccess', [RecentVisaController::class, 'show']);
 Route::post('recentvisasuccess/add', [RecentVisaController::class, 'store']);
+
+Route::get('recentworkpermit', [RecentWorkPermitController::class, 'show']);
+Route::post('recentworkpermit/add', [RecentWorkPermitController::class, 'store']);
 
 Route::get('counter', [CounterController::class, 'show']);
 Route::post('counter/add', [CounterController::class, 'store']);
