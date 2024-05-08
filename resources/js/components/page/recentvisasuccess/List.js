@@ -21,8 +21,7 @@ const List = () => {
     },
     {
       name: "Status",
-      cell: (row) => <img src={row._status} width={50} alt={"nothing"} />,
-      selector: (row) => row.link,
+      selector: (row) => row._status,
       center: true,
     },
     {

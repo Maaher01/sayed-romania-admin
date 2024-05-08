@@ -20,6 +20,11 @@ const List = () => {
       center: true,
     },
     {
+      name: "Status",
+      selector: (row) => row._status,
+      center: true,
+    },
+    {
       name: "Actions",
       cell: (row) => (
         <div style={{ display: "flex", gap: "10px" }}>
