@@ -34,6 +34,23 @@ const Add = () => {
     setMenuid(event.target.value);
   };
 
+  const modules = {
+    toolbar: [
+      [{ header: "1" }, { header: "2" }, { font: [] }],
+      [{ size: [] }],
+      ["bold", "italic", "underline", "strike", "blockquote"],
+      [
+        { list: "ordered" },
+        { list: "bullet" },
+        { indent: "-1" },
+        { indent: "+1" },
+      ],
+      ["link", "image", "video"],
+      ["clean"],
+      [{ color: [] }, { background: [] }],
+    ],
+  };
+
   const handleSubmit = (event) => {
     event.preventDefault();
 
@@ -110,14 +127,15 @@ const Add = () => {
                 onChange={setDescription}
                 id="standard-basic"
                 fullWidth
-                style={{ backgroundColor: "white", height: "200px" }}
+                style={{ backgroundColor: "white", height: "350px" }}
                 name="description"
                 label="Description"
                 multiline
-                maxRows={10}
+                maxRows={15}
+                modules={modules}
               />
             </Grid>
-            <Grid item xs={12}>
+            <Grid item xs={12} style={{ marginTop: "60px" }}>
               <TextField
                 id="standard-basic"
                 fullWidth

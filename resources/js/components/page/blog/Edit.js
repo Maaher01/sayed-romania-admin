@@ -41,6 +41,23 @@ const Add = () => {
   //   setMenuid(event.target.value);
   // };
 
+  const modules = {
+    toolbar: [
+      [{ header: "1" }, { header: "2" }, { font: [] }],
+      [{ size: [] }],
+      ["bold", "italic", "underline", "strike", "blockquote"],
+      [
+        { list: "ordered" },
+        { list: "bullet" },
+        { indent: "-1" },
+        { indent: "+1" },
+      ],
+      ["link", "image", "video"],
+      ["clean"],
+      [{ color: [] }, { background: [] }],
+    ],
+  };
+
   const handleSubmit = (event) => {
     event.preventDefault();
 
@@ -160,6 +177,7 @@ const Add = () => {
                 value={description}
                 onChange={(value) => setDescription(value)}
                 style={{ backgroundColor: "white", height: "200px" }}
+                modules={modules}
               />
             </Grid>
             <Grid item xs={1}></Grid>
