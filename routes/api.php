@@ -26,6 +26,8 @@ use App\Http\Controllers\RecentVisaController;
 use App\Http\Controllers\RecentWorkPermitController;
 use App\Http\Controllers\CounterController;
 use App\Http\Controllers\BlogController;
+use App\Http\Controllers\ClientInfoController;
+use App\Http\Controllers\ClientStatusController;
 /*
 /*
 |--------------------------------------------------------------------------
@@ -167,6 +169,19 @@ Route::get('counter', [CounterController::class, 'show']);
 Route::post('counter/add', [CounterController::class, 'store']);
 Route::get('counter/edit/{id}', [CounterController::class, 'edit']);
 Route::post('counter/edit/{id}', [CounterController::class, 'update']);
+
+Route::get('clientinfo', [ClientInfoController::class, 'show']);
+Route::post('clientinfo/add', [ClientInfoController::class, 'store']);
+Route::get('clientinfo/edit/{id}', [ClientInfoController::class, 'edit']);
+Route::post('clientinfo/update/{id}', [ClientInfoController::class, 'update']);
+
+Route::get('clientstatus', [ClientStatusController::class, 'show']);
+Route::post('clientstatus/add', [ClientStatusController::class, 'store']);
+Route::get('clientstatus/edit/{id}', [ClientStatusController::class, 'edit']);
+Route::post('clientstatus/update/{id}', [ClientStatusController::class, 'update']);
+
+Route::get('clientstatusinfo', [ClientInfoController::class, 'getClientStatusInfo']);
+Route::get('clientstatusinfo/{code}', [ClientInfoController::class, 'getClientStatusInfoByCode']);
 
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();

@@ -163,7 +163,7 @@ const ClippedDrawer = () => {
           </List>
           <Divider />
           <List>
-            <Link
+            {/* <Link
               style={{
                 textDecoration: "none",
                 color: "rgba(44, 56, 74, .681)",
@@ -176,6 +176,38 @@ const ClippedDrawer = () => {
                     <SupervisedUserCircleIcon />
                   </ListItemIcon>
                   <ListItemText primary={"Client"} />
+                </ListItemButton>
+              </ListItem>
+            </Link> */}
+            <Link
+              style={{
+                textDecoration: "none",
+                color: "rgba(44, 56, 74, .681)",
+              }}
+              to="/app/clientinfo"
+            >
+              <ListItem disablePadding>
+                <ListItemButton>
+                  <ListItemIcon>
+                    <SupervisedUserCircleIcon />
+                  </ListItemIcon>
+                  <ListItemText primary={"Client Info"} />
+                </ListItemButton>
+              </ListItem>
+            </Link>
+            <Link
+              style={{
+                textDecoration: "none",
+                color: "rgba(44, 56, 74, .681)",
+              }}
+              to="/app/clientstatus"
+            >
+              <ListItem disablePadding>
+                <ListItemButton>
+                  <ListItemIcon>
+                    <AutorenewIcon />
+                  </ListItemIcon>
+                  <ListItemText primary={"Client Status"} />
                 </ListItemButton>
               </ListItem>
             </Link>

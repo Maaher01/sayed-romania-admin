@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Button } from "@mui/material";
+import { Avatar, Button } from "@mui/material";
 import "react-toastify/dist/ReactToastify.css";
 import Grid from "@mui/material/Grid";
 import Layout from "../../layout/Layout";
@@ -16,19 +16,56 @@ const List = () => {
       name: "Title",
       selector: (row) => row._title,
       center: true,
-      width: "250px",
+      width: "120px",
     },
     {
       name: "Sub Title",
       selector: (row) => row._subtitle,
       center: true,
+      width: "120px",
+    },
+    {
+      name: "Image",
+      // selector: (row) => row._image,
+      cell: (row) => (
+        <Avatar
+          src={row._image}
+          sx={{ width: 100, height: 100 }}
+          variant="rounded"
+        />
+      ),
+      center: true,
       width: "250px",
+    },
+    {
+      name: "Slug",
+      selector: (row) => row._slug,
+      center: true,
+      width: "120px",
+    },
+    {
+      name: "Description",
+      selector: (row) => row._description,
+      center: true,
+      width: "250px",
+    },
+    {
+      name: "Tags",
+      selector: (row) => row._tags,
+      center: true,
+      width: "250px",
+    },
+    {
+      name: "Status",
+      selector: (row) => row._status,
+      center: true,
+      width: "120px",
     },
     {
       name: "Date",
       selector: (row) => row._date,
       center: true,
-      width: "300px",
+      width: "120px",
     },
     {
       name: "Action",
