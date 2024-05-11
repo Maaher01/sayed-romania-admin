@@ -23,18 +23,15 @@ const Edit = () => {
     setStatus(event.target.value);
   };
 
-  const handleChangemenu = (event) => {
-    setMenuid(event.target.value);
-  };
-
   const handleSubmit = (event) => {
     event.preventDefault();
     const formData = new FormData(event.currentTarget);
+    formData.append("amount", amount);
+    formData.append("name", name);
     formData.append("status", status);
-    formData.append("parentmenu", menuid);
 
     axios
-      .post(`/api/menu/update/${params.id}`, formData)
+      .post(`/api/counter/update/${params.id}`, formData)
       .then(function (response) {
         if (response.data.errors) {
           toast(response.data.message);
@@ -49,32 +46,17 @@ const Edit = () => {
       });
   };
 
-  const fetchMenu = async () => {
-    axios
-      .get("/api/menu")
-      .then((response) => {
-        setMenulist(response.data.data.data);
-      })
-      .catch((error) => {
-        console.log(error);
-      });
-  };
-
   useEffect(() => {
     fetchData();
-    fetchMenu();
   }, []);
 
   const fetchData = async () => {
     await axios
-      .get(`/api/menu/edit/${params.id}`)
+      .get(`/api/counter/edit/${params.id}`)
       .then(({ data }) => {
-        console.log(data);
         const alldata = data.data;
-        setTitle(alldata._title);
-        setUrl(alldata._url);
-        setMenuposition(alldata._sort);
-        setMenuid(alldata._parentmenuid);
+        setAmount(alldata._amount);
+        setName(alldata._name);
         setStatus(alldata._status);
         toast("Data Found");
       })
@@ -96,11 +78,11 @@ const Edit = () => {
               <TextField
                 id="standard-basic"
                 fullWidth
-                name="title"
-                value={title}
-                label="Title"
+                name="amount"
+                value={amount}
+                label="Amount"
                 variant="outlined"
-                onChange={(e) => setTitle(e.target.value)}
+                onChange={(e) => setAmount(e.target.value)}
                 InputProps={{ style: { backgroundColor: "white" } }}
               />
             </Grid>
@@ -108,45 +90,13 @@ const Edit = () => {
               <TextField
                 id="standard-basic"
                 fullWidth
-                name="url"
-                value={url}
-                label="Slag"
+                name="name"
+                value={name}
+                label="Name"
                 variant="outlined"
-                onChange={(e) => setUrl(e.target.value)}
+                onChange={(e) => setName(e.target.value)}
                 InputProps={{ style: { backgroundColor: "white" } }}
               />
-            </Grid>
-            <Grid item xs={6}>
-              <TextField
-                id="standard-basic"
-                fullWidth
-                name="menuposition"
-                label="Menu Position"
-                variant="outlined"
-                value={menuposition}
-                onChange={(e) => setMenuposition(e.target.value)}
-                InputProps={{ style: { backgroundColor: "white" } }}
-              />
-            </Grid>
-            <Grid item xs={6}>
-              <FormControl variant="outlined" sx={{ minWidth: 494 }}>
-                <InputLabel>Parent Menu</InputLabel>
-                <Select
-                  labelId="demo-simple-select-standard-label"
-                  value={menuid}
-                  onChange={handleChangemenu}
-                  label="Parentmenu"
-                  name="parentmenu"
-                  sx={{ backgroundColor: "white" }}
-                >
-                  <MenuItem value="0">
-                    <em>None</em>
-                  </MenuItem>
-                  {menulist.map((menu_list) => (
-                    <MenuItem value={menu_list.id}>{menu_list._title}</MenuItem>
-                  ))}
-                </Select>
-              </FormControl>
             </Grid>
             <Grid item xs={6}>
               <FormControl variant="outlined" sx={{ minWidth: 494 }}>

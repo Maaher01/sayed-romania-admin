@@ -103,9 +103,12 @@ class RecentWorkPermitController extends Controller
             
             $profile = RecentWorkPermit::where('id', '=', $id)->update([
                 '_image' => asset("/uploads")."/".$path,
-               
+                '_status' => $request->status,
             ]);
-            
+        }else{
+            $profile = RecentWorkPermit::where('id', '=', $id)->update([
+                '_status' => $request->status,
+            ]);
         }
         
         

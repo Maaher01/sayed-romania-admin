@@ -103,9 +103,12 @@ class RecentVisaController extends Controller
             
             $profile = RecentVisa::where('id', '=', $id)->update([
                 '_image' => asset("/uploads")."/".$path,
-               
+                '_status' => $request->status,
             ]);
-            
+        } else{
+            $profile = RecentVisa::where('id', '=', $id)->update([
+                '_status' => $request->status,
+            ]);
         }
         
         
