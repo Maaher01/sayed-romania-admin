@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 04, 2024 at 11:26 AM
+-- Generation Time: May 11, 2024 at 07:12 AM
 -- Server version: 10.4.32-MariaDB
--- PHP Version: 8.0.30
+-- PHP Version: 8.2.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -20,6 +20,33 @@ SET time_zone = "+00:00";
 --
 -- Database: `sayed_romania_website`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `blogs`
+--
+
+CREATE TABLE `blogs` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `_title` varchar(191) DEFAULT NULL,
+  `_subtitle` varchar(191) DEFAULT NULL,
+  `_slug` varchar(191) NOT NULL,
+  `_image` varchar(191) DEFAULT NULL,
+  `_description` longtext DEFAULT NULL,
+  `_tags` varchar(500) DEFAULT NULL,
+  `_date` timestamp NULL DEFAULT NULL,
+  `_status` tinyint(4) NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `blogs`
+--
+
+INSERT INTO `blogs` (`id`, `_title`, `_subtitle`, `_slug`, `_image`, `_description`, `_tags`, `_date`, `_status`, `created_at`, `updated_at`) VALUES
+(3, 'test- 3', 'sub test - 3', '/test-try', 'http://127.0.0.1:8000/uploads/blogimage/N6qYPsSo0RD79eJR5Yc06cPMYnDWEBRvcUUTMBg8.png', '<p>Maaher vai valo manus</p>', 'work,rest,pain,gain', '2024-04-27 18:00:00', 1, '2024-05-02 00:40:01', '2024-05-02 02:03:32');
 
 -- --------------------------------------------------------
 
@@ -42,6 +69,52 @@ CREATE TABLE `clients` (
 INSERT INTO `clients` (`id`, `_title`, `_image`, `created_at`, `updated_at`) VALUES
 (1, 'University of Waterloo', 'https://admin.edumatric.com/uploads/', '2023-08-26 23:52:17', '2023-09-05 05:25:07'),
 (2, 'Queen\'s University', 'https://admin.edumatric.com/uploads/', '2023-08-27 00:15:15', '2023-09-05 05:24:33');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `client_infos`
+--
+
+CREATE TABLE `client_infos` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `_name` varchar(191) NOT NULL,
+  `_code` varchar(191) NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `client_infos`
+--
+
+INSERT INTO `client_infos` (`id`, `_name`, `_code`, `created_at`, `updated_at`) VALUES
+(3, 'Syed Maaher Hossain', '1731045042', '2024-04-29 03:36:45', '2024-04-29 03:48:18'),
+(5, 'Siam Pathan', '1521583593', '2024-04-30 03:20:04', '2024-04-30 03:20:04');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `client_statuses`
+--
+
+CREATE TABLE `client_statuses` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `_date` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
+  `_clientcode` varchar(191) NOT NULL,
+  `_status` varchar(191) NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `client_statuses`
+--
+
+INSERT INTO `client_statuses` (`id`, `_date`, `_clientcode`, `_status`, `created_at`, `updated_at`) VALUES
+(4, '2024-04-26 18:00:00', '1731045042', 'Done', '2024-04-29 05:35:53', '2024-04-29 05:48:27'),
+(5, '2024-04-28 18:00:00', '1731045042', 'In Progress', '2024-04-29 05:54:46', '2024-04-29 05:54:46'),
+(6, '2024-04-29 18:00:00', '1521583593', 'In Progress', '2024-04-30 03:20:38', '2024-04-30 03:20:38');
 
 -- --------------------------------------------------------
 
@@ -928,6 +1001,8 @@ CREATE TABLE `menus` (
   `_url` varchar(191) NOT NULL,
   `_parentmenuid` int(11) NOT NULL,
   `_sort` int(11) NOT NULL,
+  `_metatitle` varchar(191) NOT NULL,
+  `_metadescription` varchar(191) NOT NULL,
   `_status` tinyint(4) NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
@@ -937,15 +1012,17 @@ CREATE TABLE `menus` (
 -- Dumping data for table `menus`
 --
 
-INSERT INTO `menus` (`id`, `_title`, `_url`, `_parentmenuid`, `_sort`, `_status`, `created_at`, `updated_at`) VALUES
-(1, 'About', 'portfoliodetail', 0, 2, 1, '2023-08-25 10:31:37', '2024-03-25 22:44:03'),
-(2, 'Courses', '/courses', 0, 3, 2, '2023-08-25 10:32:05', '2024-03-25 11:24:21'),
-(3, 'Event', '/event', 0, 3, 2, '2023-08-25 10:32:33', '2024-03-25 11:24:33'),
-(4, 'Home', '/', 0, 1, 1, '2023-08-25 10:33:40', '2024-03-25 22:43:26'),
-(5, 'Contact', 'contact-us', 0, 5, 1, '2023-08-25 10:34:07', '2024-03-25 11:30:15'),
-(7, 'Features', '/features', 0, 6, 2, '2024-03-30 17:42:24', '2024-03-30 17:42:24'),
-(8, 'Video', '/video', 0, 7, 2, '2024-03-30 17:54:41', '2024-03-30 17:54:41'),
-(9, 'Notice', '/notice', 0, 8, 2, '2024-04-01 17:19:26', '2024-04-01 17:19:26');
+INSERT INTO `menus` (`id`, `_title`, `_url`, `_parentmenuid`, `_sort`, `_metatitle`, `_metadescription`, `_status`, `created_at`, `updated_at`) VALUES
+(1, 'About', 'portfoliodetail', 0, 2, '', '', 1, '2023-08-25 10:31:37', '2024-03-25 22:44:03'),
+(2, 'Courses', '/courses', 0, 3, '', '', 2, '2023-08-25 10:32:05', '2024-03-25 11:24:21'),
+(3, 'Event', '/event', 0, 4, '', '', 2, '2023-08-25 10:32:33', '2024-03-25 11:24:33'),
+(4, 'Home', '/', 0, 1, '', '', 1, '2023-08-25 10:33:40', '2024-03-25 22:43:26'),
+(5, 'Contact', 'contact-us', 0, 5, '', '', 1, '2023-08-25 10:34:07', '2024-03-25 11:30:15'),
+(7, 'Features', '/features', 0, 6, '', '', 2, '2024-03-30 17:42:24', '2024-03-30 17:42:24'),
+(8, 'Video', '/video', 0, 7, '', '', 2, '2024-03-30 17:54:41', '2024-03-30 17:54:41'),
+(9, 'Notice', '/notice', 0, 8, '', '', 2, '2024-04-01 17:19:26', '2024-04-01 17:19:26'),
+(10, 'Client Status', '/clientstatus', 0, 10, '', '', 1, '2024-04-29 23:35:46', '2024-04-29 23:35:46'),
+(11, 'test title', '/test', 0, 9, 'test menu meta title 1', '<p>test menu meta description 1</p>', 2, '2024-05-10 22:50:08', '2024-05-10 23:06:05');
 
 -- --------------------------------------------------------
 
@@ -999,7 +1076,22 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (153, '2024_03_31_043338_create_counters_table', 17),
 (154, '2024_03_31_043648_create_recent_visas_table', 18),
 (155, '2024_04_02_071531_create_components_table', 19),
-(156, '2024_04_02_071655_create_components_table', 20);
+(156, '2024_04_02_071655_create_components_table', 20),
+(157, '2024_04_27_064133_create_blogs_table', 21),
+(158, '2024_04_29_075723_create_client_info_table', 21),
+(159, '2024_04_29_075826_create_client_status_table', 21),
+(160, '2024_04_29_092527_create_client_infos_table', 22),
+(161, '2024_04_29_092619_create_client_status_table', 22),
+(162, '2024_04_29_095740_create_client_status_table', 23),
+(163, '2024_04_29_100910_create_client_status_table', 24),
+(164, '2024_04_29_102621_create_client_status_table', 25),
+(165, '2024_04_29_102755_create_client_status_table', 26),
+(166, '2024_04_29_104011_create_client_statuses_table', 27),
+(167, '2024_05_02_050336_create_blogs_table', 28),
+(168, '2024_05_02_051932_create_blogs_table', 29),
+(169, '2024_05_02_054607_create_blogs_table', 30),
+(170, '2024_05_08_052433_create_recent_work_permits_table', 31),
+(171, '2024_05_11_042141_create_menus_table', 32);
 
 -- --------------------------------------------------------
 
@@ -1087,6 +1179,30 @@ INSERT INTO `recent_visas` (`id`, `_image`, `_status`, `created_at`, `updated_at
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `recent_work_permits`
+--
+
+CREATE TABLE `recent_work_permits` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `_image` varchar(191) NOT NULL,
+  `_status` tinyint(4) NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `recent_work_permits`
+--
+
+INSERT INTO `recent_work_permits` (`id`, `_image`, `_status`, `created_at`, `updated_at`) VALUES
+(1, 'http://127.0.0.1:8000/uploads/recentworkpermitimage/Avboj1Y62NkbYk4tYJDI6y54RSQpB95umRQ5Yf2Y.jpg', 1, '2024-05-08 00:16:28', '2024-05-08 00:16:28'),
+(2, 'http://127.0.0.1:8000/uploads/recentworkpermitimage/L0VqSeCiHeDLX6nyuIkJRZXZZt7oYk92k8NaAkvE.jpg', 1, '2024-05-08 00:16:39', '2024-05-08 00:16:39'),
+(3, 'http://127.0.0.1:8000/uploads/recentworkpermitimage/BO2rp4STnQcRCpPb3eephyegVV10ETgMMNCNm6bG.jpg', 1, '2024-05-08 00:16:50', '2024-05-08 00:16:50'),
+(4, 'http://127.0.0.1:8000/uploads/recentworkpermitimage/eWAAibfQcFt8ekql9rMd4MfA4QQNrbGb1t8Iv0YX.jpg', 1, '2024-05-08 00:17:00', '2024-05-08 00:17:00');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `reviews`
 --
 
@@ -1141,7 +1257,7 @@ INSERT INTO `sections` (`id`, `_title`, `_subtitle`, `_image`, `_videourl`, `_li
 (3, 'Analysis of Customer Requirements', 'Accross all major countries', 'http://127.0.0.1:8000/uploads/', NULL, '/feature1', 'icofont-folder', 3, 7, 1, '2024-03-30 23:58:50', '2024-03-30 23:58:50'),
 (4, 'Project Design and Outsourcing', 'Straight to the point', 'http://127.0.0.1:8000/uploads/', NULL, '/feature2', 'icofont-prescription', 4, 7, 1, '2024-03-31 00:00:17', '2024-03-31 00:00:17'),
 (6, 'Cooperation with embassy and recruitment channels', 'Prestigious jobs guaranteed', 'http://127.0.0.1:8000/uploads/', NULL, '/feature3', 'icofont-business-man-alt-1', 5, 7, 1, '2024-03-31 00:01:45', '2024-03-31 00:01:45'),
-(13, 'Notice', 'This is the notice section', 'http://127.0.0.1:8000/uploads/', NULL, '/notice', 'সায়েদ রোমানিয়ার পক্ষ থেকে সবাইকে জানাচ্ছি পবিত্র ঈদুল ফিতরের শুভেচ্ছ। সায়েদ রোমানিয়া ওভারসীজ লিমিটেডে চলছে ইউরোপের বিভিন্ন দেশের ওয়ার্ক পারমিট ভিসার আকর্ষনীয় সব অফার..!', 6, 9, 1, '2024-04-01 23:22:07', '2024-04-01 23:22:07');
+(13, 'Notice', 'This is the notice section', 'http://127.0.0.1:8000/uploads/', NULL, '/notice', 'সায়েদ রোমানিয়ার পক্ষ থেকে সবাইকে জানাচ্ছি পবিত্র ঈদুল আযহার শুভেচ্ছ। সায়েদ রোমানিয়া ওভারসীজ লিমিটেডে চলছে ইউরোপের বিভিন্ন দেশের ওয়ার্ক পারমিট ভিসার আকর্ষনীয় সব অফার..!', 6, 9, 1, '2024-04-01 23:22:07', '2024-04-30 05:40:41');
 
 -- --------------------------------------------------------
 
@@ -1404,9 +1520,27 @@ INSERT INTO `users` (`id`, `name`, `email`, `email_verified_at`, `password`, `tw
 --
 
 --
+-- Indexes for table `blogs`
+--
+ALTER TABLE `blogs`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `clients`
 --
 ALTER TABLE `clients`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `client_infos`
+--
+ALTER TABLE `client_infos`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `client_statuses`
+--
+ALTER TABLE `client_statuses`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -1522,6 +1656,12 @@ ALTER TABLE `recent_visas`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `recent_work_permits`
+--
+ALTER TABLE `recent_work_permits`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `reviews`
 --
 ALTER TABLE `reviews`
@@ -1577,10 +1717,28 @@ ALTER TABLE `users`
 --
 
 --
+-- AUTO_INCREMENT for table `blogs`
+--
+ALTER TABLE `blogs`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
 -- AUTO_INCREMENT for table `clients`
 --
 ALTER TABLE `clients`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- AUTO_INCREMENT for table `client_infos`
+--
+ALTER TABLE `client_infos`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+
+--
+-- AUTO_INCREMENT for table `client_statuses`
+--
+ALTER TABLE `client_statuses`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `companyprofiles`
@@ -1658,13 +1816,13 @@ ALTER TABLE `images`
 -- AUTO_INCREMENT for table `menus`
 --
 ALTER TABLE `menus`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT for table `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=157;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=172;
 
 --
 -- AUTO_INCREMENT for table `newsfeeds`
@@ -1682,6 +1840,12 @@ ALTER TABLE `personal_access_tokens`
 -- AUTO_INCREMENT for table `recent_visas`
 --
 ALTER TABLE `recent_visas`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
+-- AUTO_INCREMENT for table `recent_work_permits`
+--
+ALTER TABLE `recent_work_permits`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
