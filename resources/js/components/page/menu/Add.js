@@ -10,12 +10,15 @@ import { useNavigate } from "react-router-dom";
 import Grid from "@mui/material/Grid";
 import Layout from "../../layout/Layout";
 import { toast } from "react-toastify";
+import ReactQuill from "react-quill";
+import "react-quill/dist/quill.snow.css";
 
 const Add = () => {
   const navigate = useNavigate();
   const [status, setStatus] = useState("");
   const [menuid, setMenuid] = useState();
   const [menulist, setMenulist] = useState([]);
+  const [metadescription, setMetaDescription] = useState("");
 
   const handleChangestatus = (event) => {
     setStatus(event.target.value);
@@ -25,11 +28,29 @@ const Add = () => {
     setMenuid(event.target.value);
   };
 
+  const modules = {
+    toolbar: [
+      [{ header: "1" }, { header: "2" }, { font: [] }],
+      [{ size: [] }],
+      ["bold", "italic", "underline", "strike", "blockquote"],
+      [
+        { list: "ordered" },
+        { list: "bullet" },
+        { indent: "-1" },
+        { indent: "+1" },
+      ],
+      ["link", "image", "video"],
+      ["clean"],
+      [{ color: [] }, { background: [] }],
+    ],
+  };
+
   const handleSubmit = (event) => {
     event.preventDefault();
     const formData = new FormData(event.currentTarget);
     formData.append("status", status);
     formData.append("parentmenu", menuid);
+    formData.append("metadescription", metadescription);
 
     axios
       .post("/api/menu/add", formData)
@@ -85,6 +106,16 @@ const Add = () => {
               <TextField
                 id="standard-basic"
                 fullWidth
+                name="metatitle"
+                label="Meta Title"
+                variant="outlined"
+                InputProps={{ style: { backgroundColor: "white" } }}
+              />
+            </Grid>
+            <Grid item xs={6}>
+              <TextField
+                id="standard-basic"
+                fullWidth
                 name="url"
                 label="Slag"
                 variant="outlined"
@@ -100,6 +131,21 @@ const Add = () => {
                 label="Menu Position"
                 variant="outlined"
                 InputProps={{ style: { backgroundColor: "white" } }}
+              />
+            </Grid>
+            <Grid item xs={12}>
+              <ReactQuill
+                theme="snow"
+                value={metadescription}
+                onChange={setMetaDescription}
+                id="standard-basic"
+                fullWidth
+                style={{ backgroundColor: "white", height: "350px" }}
+                name="metadescription"
+                label="Meta Description"
+                multiline
+                maxRows={15}
+                modules={modules}
               />
             </Grid>
 

@@ -37,10 +37,6 @@ const Add = () => {
     setStatus(event.target.value);
   };
 
-  // const handleChangemenu = (event) => {
-  //   setMenuid(event.target.value);
-  // };
-
   const modules = {
     toolbar: [
       [{ header: "1" }, { header: "2" }, { font: [] }],
@@ -158,18 +154,6 @@ const Add = () => {
             </Grid>
             <Grid item xs={1}></Grid>
             <Grid item xs={11}>
-              {/* <TextField
-                id="standard-basic"
-                fullWidth
-                name="description"
-                value={description}
-                label="Description"
-                variant="outlined"
-                onChange={(e) => setDescription(e.target.value)}
-                InputProps={{ style: { backgroundColor: "white" } }}
-                multiline
-                maxRows={10}
-              /> */}
               <ReactQuill
                 name="description"
                 label="Description"

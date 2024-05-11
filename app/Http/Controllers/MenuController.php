@@ -38,6 +38,8 @@ class MenuController extends Controller
     {
        $validator = Validator::make($request->all(), [
             'title' => ['required', 'string', 'max:255'],
+            'metatitle' => ['required', 'string', 'max:255'],
+            'metadescription' => ['required', 'string'],
             'url' => ['required', 'string', 'max:15'],
         ]);
 
@@ -47,11 +49,12 @@ class MenuController extends Controller
         
         $profile = Menu::create([
             '_title' => $request->title,
+            '_metatitle' => $request->metatitle,
             '_url' => $request->url,
             '_status' => $request->status,
             '_sort' => $request->menuposition,
             '_parentmenuid' => $request->parentmenu,
-            
+            '_metadescription' => $request->metadescription
         ]);
 
         return response()->json(['status' => true, 'profile' => $profile]);
@@ -105,6 +108,8 @@ class MenuController extends Controller
     {
         $validator = Validator::make($request->all(), [
             'title' => ['required', 'string', 'max:255'],
+            'metatitle' => ['required', 'string', 'max:255'],
+            'metadescription' => ['required', 'string'],
             'url' => ['required', 'string', 'max:15'],
         ]);
 
@@ -114,10 +119,12 @@ class MenuController extends Controller
 
         $profile = Menu::where('id', '=', $id)->update([
             '_title' => $request->title,
+            '_metatitle' => $request->metatitle,
             '_url' => $request->url,
             '_status' => $request->status,
             '_sort' => $request->menuposition,
-            '_parentmenuid' => $request->parentmenu, 
+            '_parentmenuid' => $request->parentmenu,
+            '_metadescription' => $request->metadescription 
         ]);
 
         return response()->json(['status' => true, 'profile' => $profile]);

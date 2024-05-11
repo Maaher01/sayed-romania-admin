@@ -19,6 +19,8 @@ class CreateMenusTable extends Migration
             $table->string('_url');
             $table->integer('_parentmenuid');
             $table->integer('_sort');
+            $table->string('_metatitle');
+            $table->string('_metadescription');
             $table->tinyInteger('_status');
             $table->timestamps();
         });

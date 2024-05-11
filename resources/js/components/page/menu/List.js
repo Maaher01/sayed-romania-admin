@@ -18,6 +18,16 @@ const List = () => {
       center: true,
     },
     {
+      name: "Meta Title",
+      selector: (row) => row._metatitle,
+      center: true,
+    },
+    {
+      name: "Meta Description",
+      selector: (row) => row._metadescription,
+      center: true,
+    },
+    {
       name: "Slag",
       selector: (row) => row._url,
       center: true,

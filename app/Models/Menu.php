@@ -10,9 +10,11 @@ class Menu extends Model
     use HasFactory;
      protected $fillable = [
         '_title',
+        '_metatitle',
         '_url',
         '_parentmenuid',
         '_sort',
+        '_metadescription',
         '_status',
     ];
 }

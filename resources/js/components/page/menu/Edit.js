@@ -11,16 +11,20 @@ import Grid from "@mui/material/Grid";
 import Layout from "../../layout/Layout";
 import { toast } from "react-toastify";
 import { useParams } from "react-router-dom";
+import ReactQuill from "react-quill";
+import "react-quill/dist/quill.snow.css";
 
 const Edit = () => {
   const navigate = useNavigate();
   const params = useParams();
   const [title, setTitle] = useState("");
+  const [metatitle, setMetaTitle] = useState("");
   const [url, setUrl] = useState("");
   const [menuposition, setMenuposition] = useState("");
   const [status, setStatus] = useState("");
   const [menuid, setMenuid] = useState();
   const [menulist, setMenulist] = useState([]);
+  const [metadescription, setMetaDescription] = useState([]);
 
   const handleChangestatus = (event) => {
     setStatus(event.target.value);
@@ -30,11 +34,30 @@ const Edit = () => {
     setMenuid(event.target.value);
   };
 
+  const modules = {
+    toolbar: [
+      [{ header: "1" }, { header: "2" }, { font: [] }],
+      [{ size: [] }],
+      ["bold", "italic", "underline", "strike", "blockquote"],
+      [
+        { list: "ordered" },
+        { list: "bullet" },
+        { indent: "-1" },
+        { indent: "+1" },
+      ],
+      ["link", "image", "video"],
+      ["clean"],
+      [{ color: [] }, { background: [] }],
+    ],
+  };
+
   const handleSubmit = (event) => {
     event.preventDefault();
     const formData = new FormData(event.currentTarget);
     formData.append("status", status);
+    formData.append("metatitle", metatitle);
     formData.append("parentmenu", menuid);
+    formData.append("metadescription", metadescription);
 
     axios
       .post(`/api/menu/update/${params.id}`, formData)
@@ -56,6 +79,7 @@ const Edit = () => {
     axios
       .get("/api/menu")
       .then((response) => {
+        console.log(response.data.data.data);
         setMenulist(response.data.data.data);
       })
       .catch((error) => {
@@ -74,9 +98,11 @@ const Edit = () => {
       .then(({ data }) => {
         const alldata = data.data;
         setTitle(alldata._title);
+        setMetaTitle(alldata._metatitle);
         setUrl(alldata._url);
         setMenuposition(alldata._sort);
         setMenuid(alldata._parentmenuid);
+        setMetaDescription(alldata._metadescription);
         setStatus(alldata._status);
         toast("Data Found");
       })
@@ -104,6 +130,29 @@ const Edit = () => {
                 variant="outlined"
                 onChange={(e) => setTitle(e.target.value)}
                 InputProps={{ style: { backgroundColor: "white" } }}
+              />
+            </Grid>
+            <Grid item xs={6}>
+              <TextField
+                id="standard-basic"
+                fullWidth
+                name="metatitle"
+                value={metatitle}
+                label="Meta Title"
+                variant="outlined"
+                onChange={(e) => setMetaTitle(e.target.value)}
+                InputProps={{ style: { backgroundColor: "white" } }}
+              />
+            </Grid>
+            <Grid item xs={11}>
+              <ReactQuill
+                name="metadescription"
+                label="Meta Description"
+                multiline
+                value={metadescription}
+                onChange={(value) => setMetaDescription(value)}
+                style={{ backgroundColor: "white", height: "200px" }}
+                modules={modules}
               />
             </Grid>
             <Grid item xs={6}>
