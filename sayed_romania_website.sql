@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 11, 2024 at 07:12 AM
+-- Generation Time: May 13, 2024 at 09:25 AM
 -- Server version: 10.4.32-MariaDB
--- PHP Version: 8.2.12
+-- PHP Version: 8.1.25
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -1091,7 +1091,17 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (168, '2024_05_02_051932_create_blogs_table', 29),
 (169, '2024_05_02_054607_create_blogs_table', 30),
 (170, '2024_05_08_052433_create_recent_work_permits_table', 31),
-(171, '2024_05_11_042141_create_menus_table', 32);
+(171, '2024_05_11_042141_create_menus_table', 32),
+(172, '2024_05_11_093955_create_student_infos_table', 33),
+(173, '2024_05_12_053812_create_student_infos_table', 34),
+(174, '2024_05_12_054831_create_student_infos_table', 35),
+(175, '2024_05_12_055355_create_student_infos_table', 36),
+(176, '2024_05_12_055830_create_student_infos_table', 37),
+(177, '2024_05_12_063208_create_student_infos_table', 38),
+(178, '2024_05_12_071355_create_student_infos_table', 39),
+(179, '2024_05_12_071536_create_student_infos_table', 40),
+(180, '2024_05_12_071840_create_student_infos_table', 41),
+(181, '2024_05_12_072440_create_student_infos_table', 42);
 
 -- --------------------------------------------------------
 
@@ -1351,6 +1361,35 @@ CREATE TABLE `studentregistrations` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `student_infos`
+--
+
+CREATE TABLE `student_infos` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `_name` varchar(191) NOT NULL,
+  `_email` varchar(191) NOT NULL,
+  `_mobile` varchar(191) NOT NULL,
+  `_district` varchar(191) NOT NULL,
+  `_location` varchar(191) NOT NULL,
+  `_eventdate` varchar(191) NOT NULL,
+  `_paymentstatus` tinyint(4) DEFAULT NULL,
+  `_totalbill` int(11) DEFAULT NULL,
+  `_transactionid` varchar(191) DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `student_infos`
+--
+
+INSERT INTO `student_infos` (`id`, `_name`, `_email`, `_mobile`, `_district`, `_location`, `_eventdate`, `_paymentstatus`, `_totalbill`, `_transactionid`, `created_at`, `updated_at`) VALUES
+(9, 'siam Pathan', 'siam@gmail.com', '01714101359', 'Rajshahi', 'Lalmatia', '17th May 10am', NULL, NULL, NULL, '2024-05-12 04:18:18', '2024-05-12 04:18:18'),
+(18, 'Syed Maaher Hossain', 'maaher1145@gmail.com', '01714101359', 'Dhaka', 'Lalmatia', '17th May 10am', NULL, NULL, NULL, '2024-05-12 23:59:15', '2024-05-12 23:59:15');
 
 -- --------------------------------------------------------
 
@@ -1700,6 +1739,12 @@ ALTER TABLE `studentregistrations`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `student_infos`
+--
+ALTER TABLE `student_infos`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `universities`
 --
 ALTER TABLE `universities`
@@ -1822,7 +1867,7 @@ ALTER TABLE `menus`
 -- AUTO_INCREMENT for table `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=172;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=182;
 
 --
 -- AUTO_INCREMENT for table `newsfeeds`
@@ -1877,6 +1922,12 @@ ALTER TABLE `sociallinks`
 --
 ALTER TABLE `studentregistrations`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `student_infos`
+--
+ALTER TABLE `student_infos`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
 -- AUTO_INCREMENT for table `universities`
