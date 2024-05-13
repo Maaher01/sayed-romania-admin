@@ -28,6 +28,7 @@ use App\Http\Controllers\CounterController;
 use App\Http\Controllers\BlogController;
 use App\Http\Controllers\ClientInfoController;
 use App\Http\Controllers\ClientStatusController;
+use App\Http\Controllers\StudentInfoController;
 /*
 /*
 |--------------------------------------------------------------------------
@@ -186,6 +187,14 @@ Route::post('clientstatus/update/{id}', [ClientStatusController::class, 'update'
 
 Route::get('clientstatusinfo', [ClientInfoController::class, 'getClientStatusInfo']);
 Route::get('clientstatusinfo/{code}', [ClientInfoController::class, 'getClientStatusInfoByCode']);
+
+Route::get('studentinfo', [StudentInfoController::class, 'show']);
+Route::post('studentinfo/add', [StudentInfoController::class, 'store']);
+Route::get('studentinfo/edit/{id}', [StudentInfoController::class, 'edit']);
+Route::patch('studentinfo/update/{id}', [StudentInfoController::class, 'update']);
+
+// Route::post('studentinfo/storeInSession', [StudentInfoController::class, 'storeInSession']);
+Route::post('studentinfo/updatePayment/{id}', [StudentInfoController::class, 'updatePayment']);
 
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
