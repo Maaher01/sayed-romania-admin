@@ -170,7 +170,6 @@ class StudentInfoController extends Controller
     {
         $validator = Validator::make($request->all(), [
             'totalbill' => ['required'],
-            'paymentstatus' => ['required', 'string']
         ]);
 
         if ($validator->fails()) {
@@ -179,7 +178,6 @@ class StudentInfoController extends Controller
 
         $profile = StudentInfo::where('id', '=', $id)->update([
             '_totalbill' => $request->totalbill,
-            '_paymentstatus' => $request->paymentstatus
         ]);
 
         return response()->json(['status' => true, 'profile' => $profile]);
