@@ -168,17 +168,22 @@ class StudentInfoController extends Controller
      */
     public function updatePayment(Request $request, $id)
     {
-        $validator = Validator::make($request->all(), [
-            'totalbill' => ['required'],
-        ]);
-
-        if ($validator->fails()) {
-            return response()->json(['status' => false, 'message' => 'Validation Error', 'errors' => $validator->errors()], 202);
-        }
-
         $profile = StudentInfo::where('id', '=', $id)->update([
             '_totalbill' => $request->totalbill,
+            '_paymentstatus' => $request->paymentstatus,
+            '_transactionid' => $request->transactionid
         ]);
+
+    $updatedProfile = StudentInfo::find($id);
+
+    // Check if the student information was successfully updated
+    if ($profile && $updatedProfile) {
+        // Return the updated student information as a JSON response
+        return response()->json(['status' => true, 'profile' => $updatedProfile]);
+    } else {
+        // Return an error response if the update operation failed
+        return response()->json(['status' => false, 'message' => 'Failed to update student information'], 500);
+    }
 
         return response()->json(['status' => true, 'profile' => $profile]);
     }

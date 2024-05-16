@@ -29,6 +29,7 @@ use App\Http\Controllers\BlogController;
 use App\Http\Controllers\ClientInfoController;
 use App\Http\Controllers\ClientStatusController;
 use App\Http\Controllers\StudentInfoController;
+use App\Http\Controllers\CheckoutURLController;
 /*
 /*
 |--------------------------------------------------------------------------
@@ -195,6 +196,13 @@ Route::patch('studentinfo/update/{id}', [StudentInfoController::class, 'update']
 
 // Route::post('studentinfo/storeInSession', [StudentInfoController::class, 'storeInSession']);
 Route::post('studentinfo/updatePayment/{id}', [StudentInfoController::class, 'updatePayment']);
+
+// Checkout (URL) User Part
+Route::post('/bkash/create', [CheckoutURLController::class, 'create'])->name('url-create');
+Route::get('/bkash/callback', [CheckoutURLController::class, 'callback'])->name('url-callback');
+
+// Checkout (URL) Admin Part
+Route::post('/bkash/refund', [CheckoutURLController::class, 'refund'])->name('url-post-refund');
 
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
