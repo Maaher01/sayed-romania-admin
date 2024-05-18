@@ -24,6 +24,7 @@ class CreateStudentInfosTable extends Migration
             $table->tinyInteger('_paymentstatus')->nullable();
             $table->integer('_totalbill')->nullable();
             $table->string('_transactionid')->nullable();
+            $table->string('_statusmessage')->nullable();
             $table->timestamps();
         });
     }

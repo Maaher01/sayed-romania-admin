@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
+use App\Models\StudentInfo;
 use Illuminate\Http\Request;
 use Session;
 use URL;
@@ -120,6 +121,8 @@ class CheckoutURLController extends Controller
     {
         $allRequest = $request->all();
 
+        // dd($allRequest);
+
         if(isset($allRequest['status']) && $allRequest['status'] == 'success'){
                 
             $response = $this->execute($allRequest['paymentID']);
@@ -135,16 +138,17 @@ class CheckoutURLController extends Controller
 
             if(array_key_exists("statusCode",$arr) && $arr['statusCode'] != '0000'){
                 // your frontend failed route
-                return redirect('https://ieltsmock.edumatric.com/fail?data='.$arr['statusMessage']);
+                return redirect('http://localhost:5173/fail?data='.$arr['statusMessage']);
             }else{
                 // response save to your db
+
                 // your frontend success route
-                return redirect('https://ieltsmock.edumatric.com/success?data='.$arr['statusMessage']);
+                return redirect('http://localhost:5173/success?data='.$arr['statusMessage']);
             }
 
         }else{
             // your frontend failed route
-            return redirect('https://ieltsmock.edumatric.com/fail');
+            return redirect('https://localhost:5173/fail');
 
         }
 

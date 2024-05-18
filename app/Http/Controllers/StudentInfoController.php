@@ -65,37 +65,6 @@ class StudentInfoController extends Controller
         return response()->json(['status' => true, 'profile' => $profile]);
     }
 
-    // public function storeInSession(Request $request)
-    // {
-    //     $validator = Validator::make($request->all(), [
-    //         'name' => ['required', 'string'],
-    //         'email' => ['required', 'string'],
-    //         'mobile' => ['required', 'string'],
-    //         'district' => ['required', 'string'],
-    //         'location' => ['required', 'string'],
-    //         'eventdate' => ['required', 'string'],
-    //         'eventtime' => ['required', 'string'],
-    //         'totalbill' => ['required', 'string'],
-    //         'transactionid' => ['required', 'string'],
-    //     ]);
-
-    //     if($validator->fails()) {
-    //         return response()->json(['status' => false, 'message' => 'Validation Error', 'errors' => $validator->errors()], 202);
-    //     }
-        
-    //     $request->session()->put('name', $request->input('name'));
-    //     $request->session()->put('email', $request->input('email'));
-    //     $request->session()->put('mobile', $request->input('mobile'));
-    //     $request->session()->put('district', $request->input('district'));
-    //     $request->session()->put('location', $request->input('location'));
-    //     $request->session()->put('eventdate', $request->input('eventdate'));
-    //     $request->session()->put('eventtime', $request->input('eventtime'));
-    //     $request->session()->put('totalbill', $request->input('totalbill'));
-    //     $request->session()->put('transactionid', $request->input('transactionid'));
-
-    // return response()->json(['status' => true, 'message' => 'Data stored in session successfully'], 200);
-    // }
-
     /**
      * Display the specified resource.
      *

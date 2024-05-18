@@ -17,6 +17,7 @@ class StudentInfo extends Model
         '_eventdate',
         '_totalbill',
         '_transactionid',
-        '_paymentstatus'
+        '_paymentstatus',
+        '_statusmessage'
     ];
 }
