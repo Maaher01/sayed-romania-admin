@@ -456,7 +456,7 @@ const ClippedDrawer = () => {
                   <ListItemIcon>
                     <AppRegistrationIcon />
                   </ListItemIcon>
-                  <ListItemText primary={"Student Reg"} />
+                  <ListItemText primary={"Mock Registrations"} />
                 </ListItemButton>
               </ListItem>
             </Link>

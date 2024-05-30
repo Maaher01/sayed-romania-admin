@@ -551,7 +551,7 @@ function Main() {
               </ProtectedRoute>
             }
           ></Route>
-          <Route
+          {/* <Route
             path={"/app/studentregistration/add"}
             element={
               <ProtectedRoute>
@@ -566,7 +566,7 @@ function Main() {
                 <Editstudentregistration />
               </ProtectedRoute>
             }
-          ></Route>
+          ></Route> */}
           <Route
             path={"/app/recentvisasuccess"}
             element={
